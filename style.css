@@ -1,1 +1,195 @@
+:root {
+    background-color: #ecf5ff;
+    font-size: 75.2%;
+  }
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
 
+  /* header du portfolio */
+  header{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.66);
+-webkit-box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.66);
+-moz-box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.66);
+  }
+
+ header .logo{
+    display: flex;
+    position: relative;
+    width: 25%;
+    height: 100%;
+    padding: 0;
+  }
+header .titre{
+    position: inline-block;
+    text-align: left;
+    justify-content: center;
+    margin-left: 0.8rem;
+}
+header .entete{
+    display: flex;
+    margin: 10% auto;
+}
+header .tiret{
+    width:1rem;
+    height: 3.5rem;
+    background-color: blue;
+}
+header h1{
+    color: blue;
+}
+
+header .nav{
+   position: absolute;
+   top:0;
+   right: 0;
+}
+header ul{
+    display: flex;
+    margin:3.5rem;
+}
+header ul li{
+    list-style: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+header ul li a{
+    text-decoration: none;
+    font-size:1.3rem;
+    font-weight: 700;
+    padding: 10px;
+}
+header ul li a:hover{
+    color: blue;
+}
+
+/* la partie main  */
+
+.contenu{
+    margin-block: 7%;
+    margin-inline: 6%;
+    display: flex;
+    flex-direction: row;
+}
+.contenu .profil{
+    position: relative;
+    height: 10%;
+    width: 50%;
+    position: relative;
+    background-color: blue;
+    justify-content: center;
+    text-align: center;
+    
+    padding-top: 6%;
+    
+}
+.contenu .profil img{
+    margin: 0 auto;
+    height:200px;
+    border-radius: 50%;
+}
+.contenu .profil h1{
+    font-size: 2.6rem;
+    color: white;
+    margin-block: 3%;
+}
+.contenu .profil hr{
+    color: white;
+    margin-block: 10px;
+}
+.contenu .profil span{
+    padding-top: 25px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: yellow;
+}
+.contenu .profil .social{
+    background-color: white;
+    margin: 25px 0px 0px 0px;
+    padding: 20px;
+}
+.contenu .profil .social a{
+    padding: 10px;
+    font-size: 1.2rem;
+    color: blue;
+}
+.contenu .message{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin-left: 5px;
+    padding: 20px;
+}
+
+.contenu .message .titre2, .contenu .message .btn{
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+.contenu .message h1{
+    font-size: 3.5rem;
+    margin: 15px;
+}
+.contenu .message .titre2 span{
+    font-size: 25px;
+}
+.contenu .message .btn{
+    margin: 15px;
+}
+.contenu .message .btn a{
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 20px;
+    margin: 10px;
+}
+.contenu .message .btn .cv{
+    background-color: blue;
+    color:white;
+    padding: 10px 50px;
+    border:1px solid blue;
+    transition: 0.8s ease-in-out;
+}
+.contenu .message .btn .mesprojets{
+    background-color: white;
+    color: blue;
+    border:1px solid blue;
+    padding: 10px 25px;
+    transition: 0.8s ease-in-out;
+}
+
+.contenu .message .btn .cv:hover{
+    background-color: white;
+    color: blue;
+}
+.contenu .message .btn .mesprojets:hover{
+    background-color: blue;
+    color: white;
+}
+.contenu .message p{
+    text-align: justify;
+    margin: 20px;
+    font-size: 17px;
+    line-height: 1.3;
+}
+
+
+footer{
+    display: flex;
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
+-webkit-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
+-moz-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
+}
+
+.foot{
+    
+}
