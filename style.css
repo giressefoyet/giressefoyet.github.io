@@ -183,23 +183,67 @@ header ul li a:hover{
 
 footer{
     display: flex;
-    height: 100px;
+    height: 150px;
     width: 100%;
     flex-wrap: wrap;
     margin:0 auto;
     justify-content: space-between;
     text-align: center;
-    padding-block:30px;
-    padding-inline:40px;
+   
     background-color: white;
     box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
 -webkit-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
 -moz-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
+}
+
+footer i{
+    padding: 60px;
+    font-size: 14px;
 }
 .foot span{
     margin-inline: 25px;
 }
 .foot ul{
     display: flex;
-    
+    flex-wrap: wrap;
+    list-style: none;
+}
+.foot ul li{
+    height: 150px;
+    width: 300px;
+    border: 1px solid rgb(160, 160, 233);
+}
+.foot ul li h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: blue;
+    margin: 40px;
+}
+.foot ul li span{
+    font-size: 15px;
+    color: black;
+}
+.foot ul li span a, .icon{
+    color: blue;
+    font-weight: bold;
+}
+.foot .icon{
+    padding: 15px;
+    border: 1px solid blue;
+    text-decoration: none;
+    transition: 0.8s ease-out;
+}
+.foot .icon-1:hover{
+    background-color: blue;
+    color: white;
+}
+.foot .icon-2:hover{
+    background-color: #0E76A8;
+    border-color:#0E76A8;
+    color: white;
+}
+.foot .icon-3:hover{
+    background-color: rgb(0, 0, 0);
+    border-color: black;
+    color: white;
 }
