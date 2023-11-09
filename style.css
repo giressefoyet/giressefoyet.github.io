@@ -135,6 +135,7 @@ header ul li a:hover{
 }
 .contenu .message h1{
     font-size: 3.5rem;
+    color: blue;
     margin: 15px;
 }
 .contenu .message .titre2 span{
