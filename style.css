@@ -81,14 +81,11 @@ header .nav-bar a:hover{
     align-items: center;
 }
 .contenu .profil{
-    position: relative;
-    height: 10%;
+    height: 100%;
     width: 30%;
-    position: relative;
     background-color: blue;
     justify-content: center;
     text-align: center;
-    
     padding-top: 6%;
     
 }
@@ -130,7 +127,8 @@ header .nav-bar a:hover{
 .contenu .message{
     background-color: rgb(255, 255, 255);
     width: 60%;
-    margin-left: 5px;
+    height: 100%;
+    margin-left: 10px;
     padding: 20px;
 }
 
