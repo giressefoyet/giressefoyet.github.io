@@ -321,9 +321,10 @@ label, #menu{
     }
 
     /* footer */
-    .foot .RS, footer{
+    .foot .RS, footer, .foot ul{
         flex-direction: column;
     }
+
     footer i{
         width: 100%;
         margin-top: 20px;
