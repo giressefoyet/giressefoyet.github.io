@@ -268,7 +268,7 @@ footer{
     color: white;
 } 
 
-label, #menu{
+.nav label, #menu{
     display: none;
 }
 @media all and (max-width: 991px)
