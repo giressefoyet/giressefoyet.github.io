@@ -21,54 +21,53 @@
 -moz-box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.66);
   }
 
- header .logo{
+header .logo, .nav{
     display: flex;
-    position: relative;
-    width: 25%;
+    align-items:center;
+}
+header .logo img{
     height: 100%;
-    padding: 0;
-  }
-header .titre{
-    position: inline-block;
-    text-align: left;
-    justify-content: center;
-    margin-left: 0.8rem;
+    width: 110px;
 }
 header .entete{
     display: flex;
-    margin: 10% auto;
+    margin-inline-start: 10px;
 }
 header .tiret{
     width:1rem;
     height: 3.5rem;
+    margin-inline-end: 10px;
     background-color: blue;
-}
+} 
 header h1{
     color: blue;
 }
 
 header .nav{
-   position: absolute;
-   top:0;
-   right: 0;
-}
-header ul{
     display: flex;
-    margin:3.5rem;
+    width: 70%;
+    margin-inline-start: 50px;
+    /* background-color: #333; */
 }
-header ul li{
-    list-style: none;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
+header .nav-bar{
+   display: flex;
+   position: absolute;
+   right: 50px;
+   justify-content: center;
+   align-items: center;
 }
-header ul li a{
+header .nav-bar a{
+    font-size: 15px;
     text-decoration: none;
-    font-size:1.3rem;
-    font-weight: 700;
+    margin-inline: 15px;
+    font-weight: 600;
     padding: 10px;
-}
-header ul li a:hover{
+    cursor: pointer;
     color: blue;
+    transition: 0.8s ease-out;
+}
+header .nav-bar a:hover{
+    color: black;
 }
 
 /* la partie main  */
@@ -77,12 +76,14 @@ header ul li a:hover{
     margin-block: 7%;
     margin-inline: 6%;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .contenu .profil{
     position: relative;
     height: 10%;
-    width: 50%;
+    width: 30%;
     position: relative;
     background-color: blue;
     justify-content: center;
@@ -123,7 +124,7 @@ header ul li a:hover{
 }
 .contenu .message{
     background-color: rgb(255, 255, 255);
-    width: 100%;
+    width: 60%;
     margin-left: 5px;
     padding: 20px;
 }
@@ -247,4 +248,34 @@ footer i{
     background-color: rgb(0, 0, 0);
     border-color: black;
     color: white;
+}
+
+label, #menu{
+    display: none;
+}
+@media all and (max-width: 991px)
+{
+   
+      header .logo{
+        display: none;
+        margin: 0;
+        padding: 0;
+      }
+      header .nav-bar{
+        align-items: center;
+        justify-content: center;
+      }
+      header .nav-bar a{
+        font-size: 12px;
+        margin-inline: 0;
+      }
+      header .nav-bar a:hover{
+        color:black;
+      }
+      .contenu .profil, .contenu .message{
+        width: 100%;
+      }
+      .contenu .message{
+        margin: 10px 0 ;
+      }
 }
