@@ -1,1 +1,79 @@
-
+section{
+    width: 100%;
+    height: 100%;
+    margin:5% auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section .contact{
+    width: 75%;
+    margin:5% auto;
+    background-color: blue;
+}
+section .contact .con{
+    background-color: white;
+    padding: 20px;
+}
+section .contact .con h1{
+    font-size: 3.5rem;
+    color:blue;
+    padding-block-end: 10px;
+}
+section .contact .con hr{
+    width: 100px;
+    height: 5px;
+    border: none;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: blue;
+}
+section .contact .con p{
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: black;
+}
+section .contact .formulaire{
+    margin: 20px auto;
+}
+section .contact .formulaire form{
+    display: flex;
+    flex-direction: column;
+}
+section .contact .formulaire form .in, .text{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 15px 150px;
+}
+.contact .formulaire form .in label, .text label{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-block: 10px;
+}
+.contact .formulaire form .in input{
+    padding: 15px;
+    font-size: 15px;
+    color: black;
+    border: none;
+}
+.contact .formulaire form span{
+    color: red;
+}
+.contact .formulaire form textarea{
+    height: 300px;
+    padding: 15px;
+}
+.contact .formulaire form .send{
+    margin-bottom: 40px;
+}
+.contact .formulaire form .send input{
+    text-align: center;
+    padding: 15px 35px;
+    font-size: 1.5rem;
+    background-color: white;
+    color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
