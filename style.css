@@ -192,56 +192,67 @@ header .nav-bar a:hover{
 
 footer{
     display: flex;
-    height: 150px;
+    height: 100%;
     width: 100%;
-    flex-wrap: wrap;
-    margin:0 auto;
-    justify-content: space-between;
-    text-align: center;
-   
+    justify-content: center;
+    align-items: center;
     background-color: white;
     box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
 -webkit-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
 -moz-box-shadow: 0px -1px 7px 0px rgba(0,0,0,0.68);
 }
 
-footer i{
-    padding: 60px;
+ footer i{
+    width: 30%;
     font-size: 14px;
+   padding: 10px;
+    text-align: center;
+    align-items: center;
 }
-.foot span{
-    margin-inline: 25px;
+.foot{
+    display: flex;
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 .foot ul{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     list-style: none;
+    text-align: center;
+}
+
+.foot .RS{
+    display: flex;
+    flex-wrap: wrap;
 }
 .foot ul li{
-    height: 150px;
-    width: 300px;
-    border: 1px solid rgb(160, 160, 233);
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
 }
 .foot ul li h3{
     font-size: 1.5rem;
     font-weight: 700;
     color: blue;
-    margin: 40px;
+    margin-block: 20px;
 }
-.foot ul li span{
-    font-size: 15px;
-    color: black;
-}
+
 .foot ul li span a, .icon{
     color: blue;
+    font-size: 15px;
     font-weight: bold;
 }
 .foot .icon{
+    margin: 5px;
     padding: 15px;
     border: 1px solid blue;
     text-decoration: none;
     transition: 0.8s ease-out;
-}
+} 
 .foot .icon-1:hover{
     background-color: blue;
     color: white;
@@ -255,7 +266,7 @@ footer i{
     background-color: rgb(0, 0, 0);
     border-color: black;
     color: white;
-}
+} 
 
 label, #menu{
     display: none;
@@ -279,6 +290,7 @@ label, #menu{
       header .nav-bar a:hover{
         color:black;
       }
+      
       .contenu .profil, .contenu .message{
         width: 100%;
       }
@@ -303,5 +315,17 @@ label, #menu{
         font-weight: bold;
         margin: 8px 0;
         width: 100%;
+    }
+    .contenu .message p{
+        font-size: 130%;
+    }
+
+    /* footer */
+    .foot .RS, footer{
+        flex-direction: column;
+    }
+    footer i{
+        width: 100%;
+        margin-top: 20px;
     }
 }
