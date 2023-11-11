@@ -34,19 +34,25 @@ section .contact .con p{
     color: black;
 }
 section .contact .formulaire{
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    display: block;
+    padding: 0 auto;
+}
+.contact .formulaire form {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    gap: 5px;
 }
 section .contact .formulaire .bloc{
     display: flex;
-   margin: 0 auto;
+    width: 100%;
+    margin: 0 auto;
 }
 section .contact .formulaire .in, .text{
     display: flex;
     flex-direction: column;
     margin: 10px 50px;
 }
+
 .contact .formulaire form .in input{
     width: 400px;
     padding: 15px;
@@ -61,35 +67,14 @@ section .contact .formulaire .in, .text{
     margin-block: 10px;
     text-align: left;
 }
-section .contact .formulaire form{
-    display: flex;
-    flex-direction: column;
-}
-/* 
-section .contact .formulaire form .in, .text{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin: 15px;
-}
-.contact .formulaire form .in label, .text label{
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    margin-block: 10px;
-}
-.contact .formulaire form .in input{
-    padding: 15px;
-    font-size: 15px;
-    color: black;
-    border: none;
-}
+
 .contact .formulaire form span{
     color: red;
 }
 .contact .formulaire form textarea{
-    height: 300px;
+    height: 250px;
     padding: 15px;
+    width: 900px;
 }
 .contact .formulaire form .send{
     margin-bottom: 40px;
