@@ -73,7 +73,24 @@
             </div>
         </div>
     </section>
-    
+    // si le formulaire est remplie alors envoyer
+    <?php
+    if(isset($_POST["message"])){
+        $message="Ce message a été envoyer depuis la page contact du site giressefoyet.github.io
+        Nom : ". $_POST["nom"] ."
+        Email : ". $_POST["email"] ."
+        Tél : " . $_POST["tel"] ."
+        Message : ". $_POST["message"];
+        
+        
+        $retour = mail("ffgire@gmail.com", "Envoi depuis la page Contact", $_POST["sujet"], $message, 
+        "From:ffgire@gmail.com". "\r\n" . "Reply-to" .$_POST["email"]);
+        if ($retour){
+            echo '<p>Votre message a bien été envoyé.</p>';
+        }
+    }
+    ?>  
+
 
     <footer>
        <i>© Copyright 2023. Made by Giresse FOYET</i><hr>
