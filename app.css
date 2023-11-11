@@ -93,7 +93,7 @@ section .contact .formulaire .in, .text{
 .contact .formulaire form .send input:hover{
     background-color: aqua;
     
-} */
+} 
 
 @media all and (max-width: 991px){
     section .contact .con h1{
@@ -108,7 +108,11 @@ section .contact .formulaire .in, .text{
     }
     section .contact .formulaire .bloc{
        flex-direction: column;
-       
     }
-
+    .contact .formulaire form .in input{
+        width:100%;
+     }
+     .contact .formulaire form textarea{
+        width: 100%;
+     }
 }
