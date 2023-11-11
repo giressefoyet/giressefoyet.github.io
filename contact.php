@@ -40,7 +40,7 @@
                     et je vous répondrai dans les plus brefs délais</p>
             </div>
             <div class="formulaire">
-                <form action="" method="post">
+                <form  method="post">
                     <div class="bloc">
                         <div class="in">
                             <label for="nom">Nom & Prénom <span>*</span></label>
