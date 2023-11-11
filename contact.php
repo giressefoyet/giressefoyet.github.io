@@ -40,7 +40,7 @@
                     et je vous répondrai dans les plus brefs délais</p>
             </div>
             <div class="formulaire">
-                <form action="mail.php" method="post">
+                <form action="" method="post">
                     <div class="bloc">
                         <div class="in">
                             <label for="nom">Nom & Prénom <span>*</span></label>
@@ -73,7 +73,7 @@
             </div>
         </div>
     </section>
-    // si le formulaire est remplie alors envoyer
+    
     <?php
     if(isset($_POST["message"])){
         $message="Ce message a été envoyer depuis la page contact du site giressefoyet.github.io
