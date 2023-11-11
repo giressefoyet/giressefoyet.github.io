@@ -269,7 +269,7 @@ footer{
 .nav label, #menu{
     display: none;
 }
-@media all and (max-width: 991px)
+@media all and (max-width: 900px)
 {
    
       header .logo{
