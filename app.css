@@ -93,8 +93,8 @@ section .contact .formulaire .in, .text{
     transition: 0.8s ease-out;
 }
 .contact .formulaire form .send input:hover{
-    background-color: aqua;
-    
+    background-color: rgb(0, 119, 255);
+    color: white;
 } 
 
 @media all and (max-width: 900px){
