@@ -10,9 +10,11 @@ section .contact{
     width: 75%;
     margin:5% auto;
     background-color: blue;
+    box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.25);
 }
 section .contact .con{
     background-color: white;
+    border: 1px solid rgba(0, 0, 255, 0.5);
     padding: 20px;
 }
 section .contact .con h1{
