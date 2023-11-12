@@ -18,6 +18,7 @@
     width: 100%;
     height: 100px;
     background-color: white;
+    z-index: 11;
     box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.45);
 -webkit-box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.45);
 -moz-box-shadow: 1px 1px 5px 0px rgba(40,47,209,0.66);
@@ -35,11 +36,12 @@ header .entete{
     display: flex;
     margin-inline-start: 10px;
 }
-header .tiret{
+header .tiret, .mesprojets .ligne3{
     width:1rem;
     height: 3.5rem;
     margin-inline-end: 10px;
     background-color: blue;
+    border: none;
 } 
 header h1{
     color: blue;
