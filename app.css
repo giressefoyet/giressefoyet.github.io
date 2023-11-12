@@ -107,17 +107,19 @@ section .contact .formulaire .in, .text{
     position: relative;
     margin: 25px auto;
     width: 80%;
+    height: 100%;
 }
 .mesprojets .projet .titre_pro{
     display: flex;
     margin: 35px 0 20px 0;
 }
 .mesprojets .projet .titre_pro .tit h1{
+    margin-bottom: 5px;
     font-size: 2rem;
     color: blue;
 }
 .mesprojets .projet .titre_pro .tit i{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: black;
     font-weight: 700;
 }
@@ -153,9 +155,9 @@ section .contact .formulaire .in, .text{
 
 
 /* galéries de conception graphique */
-figure{
+/* figure{
     display: flex;
-}
+} */
 
 
 @media all and (max-width: 900px){
@@ -178,4 +180,30 @@ figure{
      .contact .formulaire form textarea{
         width: 100%;
      }
+     .mesprojets{
+        margin-top: 120px;
+     }
+     .mesprojets .projet{
+        display: flex;
+        flex-direction: column;
+    }
+     .mesprojets .titre{
+        font-size: 2.5rem;
+     }
+     .mesprojets .phrase{
+        font-size: 16px;
+        margin: 0 25px;
+     }
+     .mesprojets .projet .titre_pro{
+        margin: 30px 0 10px 0;
+    }
+    .mesprojets .projet .titre_pro .tit h1{
+        font-size: 1.6rem;
+    }
+    .mesprojets .projet .titre_pro .tit i{
+        font-size: 1.2rem;
+    }
+    .mesprojets .projet img{
+        height: 200PX;
+    }
 }
