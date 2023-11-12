@@ -8,7 +8,7 @@ section{
 }
 section .contact{
     width: 75%;
-    margin:5% auto;
+    margin:15% auto;
     background-color: blue;
     box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.25);
 }
@@ -17,12 +17,13 @@ section .contact .con{
     border: 1px solid rgba(0, 0, 255, 0.5);
     padding: 20px;
 }
-section .contact .con h1{
+section .contact .con h1, .mesprojets .titre, .moncv h1{
+    text-align: center;
     font-size: 3.5rem;
     color:blue;
     padding-block-end: 10px;
 }
-section .contact .con hr{
+section .contact .con hr, .mesprojets .ligne2, .moncv hr{
     width: 100px;
     height: 5px;
     border: none;
@@ -30,7 +31,7 @@ section .contact .con hr{
     border-radius: 10px;
     background-color: blue;
 }
-section .contact .con p{
+section .contact .con p, .mesprojets p{
     margin-top: 20px;
     font-size: 1.5rem;
     color: black;
@@ -99,6 +100,18 @@ section .contact .formulaire .in, .text{
     background-color: rgb(0, 119, 255);
     color: white;
 } 
+
+
+
+.mesprojets, .moncv{
+    margin: 10% 0;
+}
+.mesprojets .ligne2, .moncv hr{
+    margin-bottom: 25px;
+}
+.mesprojets p{
+    text-align: center;
+}
 
 @media all and (max-width: 900px){
     section .contact .con h1{
