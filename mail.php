@@ -28,7 +28,7 @@ if (isset($_POST["envoyer"])){
     //on recupère le message  
     $message = $_POST["message"];  
       
-    $to = "ffgire@gmail.com";      
+    $to = "https://wa.me/237699318917";      
     $headers = "From:" . $nom . " " . $prenom ." " . $email;    
     //on envoie le message avec la fonction mail  
     if (mail($to,$sujett,$message,$headers))   
