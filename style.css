@@ -70,7 +70,10 @@ header .nav-bar a{
     color: blue;
     transition: 0.8s ease-out;
 }
-header .nav-bar a::not(.active):hover{
+header .nav-bar a:hover{
+    color: black;
+}
+/* header .nav-bar a::not(.active):hover{
     color: black;
 }
 header .nav-bar .active:visited{
@@ -78,7 +81,7 @@ header .nav-bar .active:visited{
 }
 header .nav-bar a:active{
     color: rgb(255, 0, 0);
-}
+} */
 /* la partie main  */
 
 .contenu{
