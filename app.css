@@ -31,7 +31,7 @@ section .contact .con hr, .mesprojets .ligne2, .moncv hr{
     border-radius: 10px;
     background-color: blue;
 }
-section .contact .con p, .mesprojets p{
+section .contact .con p, .mesprojets .phrase{
     margin-top: 20px;
     font-size: 1.5rem;
     color: black;
@@ -109,7 +109,7 @@ section .contact .formulaire .in, .text{
 .mesprojets .ligne2, .moncv hr{
     margin-bottom: 25px;
 }
-.mesprojets p{
+.mesprojets .phrase{
     text-align: center;
 }
 
