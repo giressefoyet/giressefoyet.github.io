@@ -44,6 +44,7 @@ header .tiret, .mesprojets .ligne3{
     border: none;
 } 
 header h1{
+    font-size: 20px;
     color: blue;
 }
 
@@ -73,15 +74,7 @@ header .nav-bar a{
 header .nav-bar a:hover{
     color: black;
 }
-/* header .nav-bar a::not(.active):hover{
-    color: black;
-}
-header .nav-bar .active:visited{
-    color: black;
-}
-header .nav-bar a:active{
-    color: rgb(255, 0, 0);
-} */
+
 /* la partie main  */
 
 .contenu{
@@ -269,12 +262,13 @@ footer .ligne{
 }
 @media all and (max-width: 900px)
 {
-   
-      header .logo{
-        display: none;
-        margin: 0;
-        padding: 0;
-      }
+   header{
+    border-top: 5px solid blue;
+   }
+    
+      header h1{
+        font-size: 18px;
+    }
       header .nav-bar{
         align-items: center;
         justify-content: center;
@@ -336,4 +330,16 @@ footer .ligne{
         height: 1px;
         margin: 25px 0 0 0;
     }
+}
+@media all and (max-width: 600px)
+{
+   header{
+    border-top: 5px solid blue;
+   }
+   header .logo{
+        display: none;
+        margin: 0;
+        padding: 0;
+   }
+  
 }
