@@ -235,7 +235,7 @@ footer .ligne{
 
 .foot .RS{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: rows;
 }
 .foot ul li{
     padding: 20px;
@@ -283,7 +283,9 @@ footer .ligne{
       header .nav-bar a:hover{
         color:black;
       }
-      
+      .contenu{
+        margin-block: 30%;
+    }
       .contenu .profil, .contenu .message{
         width: 100%;
       }
@@ -314,7 +316,11 @@ footer .ligne{
     }
 
     /* footer */
-    .foot .RS, footer, .foot ul{
+    footer{
+        flex-direction: column-reverse;
+        padding-bottom: 30px;
+    }
+    .foot ul{
         flex-direction: column;
     }
 
