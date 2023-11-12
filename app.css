@@ -101,8 +101,6 @@ section .contact .formulaire .in, .text{
     color: white;
 } 
 
-
-
 .mesprojets, .moncv{
     margin: 10% 0;
 }
@@ -112,6 +110,8 @@ section .contact .formulaire .in, .text{
 .mesprojets .phrase{
     text-align: center;
 }
+
+
 
 @media all and (max-width: 900px){
     section .contact .con h1{
