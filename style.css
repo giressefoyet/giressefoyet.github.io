@@ -12,6 +12,8 @@
 
   /* header du portfolio */
   header{
+    position: fixed;
+    top: 0;
     display: flex;
     width: 100%;
     height: 100px;
@@ -78,7 +80,7 @@ header .nav-bar a:active{
 /* la partie main  */
 
 .contenu{
-    margin-block: 7%;
+    margin-block: 15%;
     margin-inline: 6%;
     display: flex;
     flex-wrap: wrap;
@@ -193,7 +195,7 @@ header .nav-bar a:active{
 
 footer{
     display: flex;
-    height: 100%;
+    height: 25%;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -255,7 +257,7 @@ footer .ligne{
     font-weight: bold;
 }
 
- 
+
 
 .nav label, #menu{
     display: none;
