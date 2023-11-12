@@ -169,7 +169,7 @@ header .nav-bar a:active{
     border:1px solid blue;
     transition: 0.8s ease-in-out;
 }
-.contenu .message .btn .mesprojets{
+.contenu .message .btn .mes{
     background-color: white;
     color: blue;
     border:1px solid blue;
@@ -181,7 +181,7 @@ header .nav-bar a:active{
     background-color: white;
     color: blue;
 }
-.contenu .message .btn .mesprojets:hover{
+.contenu .message .btn .mes:hover{
     background-color: blue;
     color: white;
 }
