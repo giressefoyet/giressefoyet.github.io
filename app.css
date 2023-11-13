@@ -103,6 +103,7 @@ section .contact .formulaire .in, .text{
 
 .mesprojets .projet{
     background-color: white;
+    border: 1px solid rgba(0, 0, 255, 0.2);
     display: flex;
     position: relative;
     margin: 25px auto;
