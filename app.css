@@ -265,6 +265,21 @@ section .contact .formulaire .in, .text{
    font-size: 14px;
    font-weight: 600;
 }
+.moncv .cv .comp .col4 label{
+    font-size: 15px; 
+    padding-inline: 10px;
+    color: black;
+    font-weight: 600;
+}
+.contenu-exp .lang{
+    margin: 50px 0;
+}
+.contenu-exp  progress{
+    margin-inline-end: 60px;
+}
+
+
+
 @media all and (max-width: 900px){
     section .contact{
         width: 90%;
