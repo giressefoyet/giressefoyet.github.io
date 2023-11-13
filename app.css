@@ -124,6 +124,13 @@ section .contact .formulaire .in, .text{
     color: black;
     font-weight: 700;
 }
+.mesprojets .ligne3{
+    width:1rem;
+    height: 4.5rem;
+    margin-inline-end: 10px;
+    background-color: blue;
+    border: none;
+} 
 .mesprojets .projet1{
     padding-right: 10px;
 }
@@ -133,10 +140,16 @@ section .contact .formulaire .in, .text{
     padding-right: 25px;
     font-size: 15px;
 }
+.mesprojets .projet1 p .i{
+    font-weight: 600;
+}
 .mesprojets .projet1 ul{
     margin: 0 0 0 40px;
     padding-right: 25px;
     font-size: 15px;
+}
+.mesprojets .projet1 ul li{
+    margin: 5px;
 }
 .mesprojets, .moncv{
     margin: 10% 0;
