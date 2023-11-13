@@ -101,7 +101,7 @@ section .contact .formulaire .in, .text{
     color: white;
 } 
 
-.mesprojets .projet{
+.mesprojets .projet, .moncv .contenu-exp{
     background-color: white;
     border: 1px solid rgba(0, 0, 255, 0.2);
     display: flex;
@@ -163,8 +163,108 @@ section .contact .formulaire .in, .text{
 .mesprojets .projet img{
     height: 300px;
 }
+.moncv .cv{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: 25px auto;
+    width: 60%;
+    height: 100%;
+}
+.moncv .en{
+    padding-block-start: 40px;
+    padding-block-end: 50px;
+}
+.moncv .cv .experience{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+.moncv .cv .experience .col{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.moncv .cv .experience h2{
+    position: absolute;
+    left: 85px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+.moncv .cv .experience .col button{
+    position: absolute;
+    right: 85px;
+    padding: 10px 0px;
+    border: 1px solid blue;
+    border-radius: 25px;
+    background-color: blue;
+    transition: 0.8s ease-out;
+}
+.moncv .cv .experience button a{
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    padding: 10px 40px;
+    transition: 0.8s ease-out;
+}
+.moncv .cv .experience button:hover{
+    background-color: white;
+    border: 1px solid;
+    border-color: blue;
+}
+.moncv .cv .experience button a:hover{
+    color: blue;
+}
+.moncv .cv .contenu-exp{
+    display: flex;
+    padding: 50px;
+}
 
+.moncv .cv .contenu-exp .col1{
+    width: 200%;
+}
+.moncv .cv .contenu-exp .col1 h3{
+    width: 200%;
+    color: blue;
+    font-size: 20px;
+    font-weight: 700;
+    padding-block-end: 10px;
+}
+.moncv .cv .contenu-exp .col1 i{
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 600;
+    margin-block-end:10px;
+}
+.moncv .cv .contenu-exp .col2{
+    padding-inline-start:40px;
+    margin-inline-start: 50px;
+    align-items: center;
+}
+.moncv .cv .contenu-exp .col1 p, .moncv .cv .contenu-exp .col2 p{
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.5;
+}
 
+.moncv .cv .comp{
+    flex-direction: column;
+}
+.moncv .cv .comp .col3{
+    display: flex;
+    flex-wrap: wrap;
+}
+.moncv .cv .comp .competence{
+    margin: 9px 10px;
+   padding: 15px 25px;
+   background-color: blue;
+   color: white;
+   border: none;
+   font-size: 14px;
+   font-weight: 600;
+}
 @media all and (max-width: 900px){
     section .contact{
         width: 90%;
