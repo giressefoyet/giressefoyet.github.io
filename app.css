@@ -250,8 +250,8 @@ section .contact .formulaire .in, .text{
     margin-block-end:10px;
 }
 .moncv .cv .contenu-exp .col2{
-    /* padding-inline-start:40px;
-    margin-inline-start: 50px; */
+    padding-inline-start:40px;
+    margin-inline-start: 50px;
     align-items: center;
 }
 .moncv .cv .contenu-exp .col1 p, .moncv .cv .contenu-exp .col2 p{
