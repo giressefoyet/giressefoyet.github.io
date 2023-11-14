@@ -101,7 +101,7 @@ section .contact .formulaire .in, .text{
     color: white;
 } 
 
-.mesprojets .projet, .moncv .contenu-exp{
+.mesprojets .projet{
     background-color: white;
     border: 1px solid rgba(0, 0, 255, 0.2);
     display: flex;
@@ -110,6 +110,7 @@ section .contact .formulaire .in, .text{
     width: 80%;
     height: 100%;
 }
+
 .mesprojets .projet .titre_pro{
     display: flex;
     margin: 35px 0 20px 0;
@@ -169,6 +170,16 @@ section .contact .formulaire .in, .text{
     justify-content: center;
     margin: 25px auto;
     width: 60%;
+    height: 100%;
+}
+
+.moncv .contenu-exp{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 255, 0.2);
+    display: flex;
+    position: relative;
+    margin: 25px auto;
+    width: 100%;
     height: 100%;
 }
 .moncv .en{
@@ -239,8 +250,8 @@ section .contact .formulaire .in, .text{
     margin-block-end:10px;
 }
 .moncv .cv .contenu-exp .col2{
-    padding-inline-start:40px;
-    margin-inline-start: 50px;
+    /* padding-inline-start:40px;
+    margin-inline-start: 50px; */
     align-items: center;
 }
 .moncv .cv .contenu-exp .col1 p, .moncv .cv .contenu-exp .col2 p{
