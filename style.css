@@ -12,12 +12,20 @@ body{
 
 /* design css de l entete */
 header nav{
-    background:white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap:5px;
+    background:rgba(255, 255, 255, 0.652);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.123);
     padding: 15px;
     text-align: center;
     align-items: center;
+    
 }
-header nav a{
+header nav a.link{
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -26,25 +34,35 @@ header nav a{
     color: blue;
     transition: all 0.5s ease-out;
 }
-header nav a:hover{
+header nav a.link:hover{
     background: black;
     color: white;
 }
 header a.what{
-    position: absolute;
-    top: 5px;
-    right: 20px;
+    font-size: 20px;
+    margin-left: 50px;
+    text-decoration: none;
+    padding: 10px 20px;
     font-weight: 600;
-    padding-inline: 20px;
     text-transform: capitalize;
-    color: white;
-    background: #25d366;
+    color: rgba(21, 20, 20, 0.766);
+    background: #ffffff;
     border-radius: 30px;
-    border: 1px solid green;
+    border: 1px solid blue;
     transition: all 0.5s ease-out;
 }
 header a.what:hover{
-    background: rgba(3, 140, 53, 0.695);
+    background: rgba(48, 62, 141, 0.695);
+    color: white;
+}
+header a.logo{
+    margin-right: 50px;
+    margin-left: 30px;
+    color: rgba(21, 20, 20, 0.766);
+    text-decoration: none;
+    background: none;
+    font-size: 25px;
+    font-weight: 600;
 }
 header h1{
     text-align: center;
@@ -53,6 +71,7 @@ header h1{
     font-weight: 600;
     color: rgba(21, 20, 20, 0.766);
     padding: 40px 20px;
+    margin-top: 80px;
 }
 
 /* css des bloc de chaque cours */
@@ -70,9 +89,12 @@ section{
 }
 
 section a{
+    text-decoration: none;
+    color: rgba(21, 20, 20, 0.766);
     background: rgba(255, 255, 255, 0.847);
     border-radius: 10px;
     min-height: 300px;
+    padding: 20px;
     border: 1px solid white;
 }
 section a:hover{
@@ -81,9 +103,43 @@ section a:hover{
 section h3{
     text-align: center;
     text-transform: uppercase;
-    margin-block: 30px;
-    color: rgba(21, 20, 20, 0.766);
+    margin-block: 10px;
+    font-size: 25px;
     text-decoration: underline;
+}
+
+section p{
+    margin-top: 25px;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 25px;
+}
+
+/* css whatsapp */
+a.whatsapp{
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: none;
+    color: #019b39;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 2%;
+    bottom:10%;
+}
+
+a.whatsapp i{
+    border-radius: 50%;
+    padding-block: 30px;
+    background: rgba(0, 132, 4, 0.119);
+    border: 1px solid rgba(0, 132, 4, 0.159);
+    font-size: 60px;
+    transition: .5s ease-out;
+}
+a.whatsapp i:hover{
+    border: 1px solid rgba(0, 132, 4, 0.589);
 }
 
 footer{
