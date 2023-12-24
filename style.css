@@ -10,7 +10,14 @@ body{
     background: linear-gradient(30deg, rgba(226,138,0,0.8029411593739058) 0%, rgba(229,255,30,1) 100%);
     background-repeat: no-repeat;
 }
-
+.unselect-texte {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #cc0000;
+  }
 /* design css de l entete */
 header nav{
     width: 100%;
@@ -19,18 +26,19 @@ header nav{
     display: flex;
     flex-wrap: wrap;
     gap:5px;
-    background:rgba(255, 255, 255, 0.652);
+    background:rgba(255, 255, 255, 0.882);
     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.123);
     padding: 15px;
     text-align: center;
     align-items: center;
+    z-index: 10000;
 }
 header nav a.link{
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.056);
+    background: rgba(0, 0, 0, 0.096);
     color: blue;
     transition: all 0.5s ease-out;
 }
@@ -154,12 +162,24 @@ section .bloc-bureautique::before{
 }
 
 /* fin css icon background */
+/* hr et h4 des différents pages de chaque cours */
 
+hr{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    margin-top: 8px;
+}
+h4{
+    font-size: 18px;
+    text-align: center;
+}
+
+/* fin css du hr des pages de chaque cours */
 section p{
     margin-top: 25px;
-    font-size: 16px;
+    font-size: 15px;
     text-align: justify;
-    line-height: 25px;
+    line-height: 22px;
     z-index: 99;
 }
 /* css des icones de gauches */
