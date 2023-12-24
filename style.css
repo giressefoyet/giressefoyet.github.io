@@ -23,7 +23,6 @@ header nav{
     padding: 15px;
     text-align: center;
     align-items: center;
-    
 }
 header nav a.link{
     text-align: center;
@@ -173,6 +172,7 @@ a.whatsapp{
 }
 
 a.whatsapp i{
+    text-decoration: underline;
     border-radius: 50%;
     padding-block: 30px;
     background: rgba(0, 132, 4, 0.119);
@@ -201,7 +201,7 @@ footer i{
     .icon{
     position: fixed;
     left: 5px;
-    top: 10%;
+    top: 30%;
     }
     .icon i{
     min-width: 10px;
@@ -219,5 +219,20 @@ footer i{
     header h1{
     padding: 40px 20px;
     margin-top: 0px;
+    }
+    header nav{
+        padding: 10px 0;
+    }
+    section{
+        grid-template-columns:repeat(auto-fill, 310px);
+    }
+    a.whatsapp{
+        font-size: 12px;
+        right: 2%;
+        bottom:50%;
+    }
+    a.whatsapp i{
+        padding-block: 20px;
+        font-size: 40px;
     }
 }
