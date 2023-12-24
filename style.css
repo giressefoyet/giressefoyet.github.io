@@ -214,4 +214,8 @@ footer i{
     a.what{
         width: 100%;
     }
+    header h1{
+    padding: 40px 20px;
+    margin-top: 0px;
+    }
 }
