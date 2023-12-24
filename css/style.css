@@ -170,7 +170,7 @@ section .bloc-bureautique::before{
 
 .js-icon:before{ /* mettre en position absolute à
     l'interieur du block js-icon et le positionner*/
-    position: absolute;
+    position: fixed;
     font-family: 'FontAwesome';
     top: 0;
     left: 10px;
@@ -275,10 +275,12 @@ a.whatsapp i:hover{
 }
 
 footer{
-    text-align: center;
     padding: 15px;
     background:white;
     color:  rgba(21, 20, 20, 0.866);
+}
+footer p{
+    text-align: center;
 }
 footer i{
     font-weight: bold;
