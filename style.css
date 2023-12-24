@@ -208,5 +208,10 @@ footer i{
     padding: 2px;
     font-size: 20px;
     }
-
+    a.logo{
+        width: 100%;
+    }
+    a.what{
+        width: 100%;
+    }
 }
