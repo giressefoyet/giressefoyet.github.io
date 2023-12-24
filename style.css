@@ -90,7 +90,7 @@ section{
 
 section a{
     text-decoration: none;
-    color: rgba(21, 20, 20, 0.766);
+    color: rgba(21, 20, 20, 0.966);
     background: rgba(255, 255, 255, 0.847);
     border-radius: 10px;
     min-height: 300px;
@@ -114,6 +114,46 @@ section p{
     text-align: justify;
     line-height: 25px;
 }
+/* css des icones de gauches */
+.icon{
+    position: fixed;
+    left: 5px;
+    top: 35%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.icon i{
+    min-width: 40px;
+    padding: 5px;
+    margin-block: 1px;
+    border-radius: 5px;
+    background: white;
+    font-size: 40px;
+    transition: all 0.5s ease ease-in-out;
+}
+
+.fa-square-facebook{
+    color: #032e8d ;
+}
+.fa-square-facebook:hover{
+    color:#021e5a ;
+}
+.fa-github{
+    color: black;
+}
+.fa-github:hover, .fa-square-x-twitter:hover{
+    color: rgb(32, 31, 31);
+}
+.fa-linkedin{
+    color: #0077b5;
+}
+.fa-linkedin:hover{
+    color: #0a608e;
+}
+.fa-square-x-twitter{
+    color:  #000000;
+}
 
 /* css whatsapp */
 a.whatsapp{
@@ -121,13 +161,15 @@ a.whatsapp{
     font-weight: bold;
     text-transform: capitalize;
     text-align: center;
-    text-decoration: none;
+    text-decoration: underline;
     color: #019b39;
     display: flex;
     flex-direction: column;
     position: fixed;
     right: 2%;
     bottom:10%;
+    z-index: 9999;
+    transition: .5s ease-out;
 }
 
 a.whatsapp i{
@@ -136,7 +178,6 @@ a.whatsapp i{
     background: rgba(0, 132, 4, 0.119);
     border: 1px solid rgba(0, 132, 4, 0.159);
     font-size: 60px;
-    transition: .5s ease-out;
 }
 a.whatsapp i:hover{
     border: 1px solid rgba(0, 132, 4, 0.589);
@@ -146,5 +187,9 @@ footer{
     text-align: center;
     padding: 15px;
     background:white;
-    color:  rgba(21, 20, 20, 0.766);
+    color:  rgba(21, 20, 20, 0.866);
+}
+footer i{
+    font-weight: bold;
+    color: blue;
 }
