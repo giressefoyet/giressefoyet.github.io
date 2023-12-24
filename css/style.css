@@ -1,0 +1,339 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS de la page Accueill */
+body{
+    font-family: verdana;
+    background: rgb(226,138,0);
+    background: linear-gradient(30deg, rgba(226,138,0,0.8029411593739058) 0%, rgba(229,255,30,1) 100%);
+    background-repeat: no-repeat;
+}
+
+/* emptecher que le texte soit selectionner sur la page */
+.unselect-texte {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #cc0000;
+  }
+/* design css de l entete */
+header nav{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap:5px;
+    background:rgba(255, 255, 255, 0.882);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.123);
+    padding: 15px;
+    text-align: center;
+    align-items: center;
+    z-index: 10000;
+}
+header nav a.link{
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.096);
+    color: blue;
+    transition: all 0.5s ease-out;
+}
+header nav a.link:hover{
+    background: black;
+    color: white;
+}
+header a.what{
+    font-size: 20px;
+    margin-left: 50px;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: rgba(21, 20, 20, 0.766);
+    background: #ffffff;
+    border-radius: 30px;
+    border: 1px solid blue;
+    transition: all 0.5s ease-out;
+}
+header a.what:hover{
+    background: black;
+    color: white;
+}
+header a.logo{
+    margin-right: 50px;
+    margin-left: 30px;
+    color: rgba(21, 20, 20, 0.766);
+    text-decoration: none;
+    background: none;
+    font-size: 25px;
+    font-weight: 600;
+}
+header h1{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(21, 20, 20, 0.766);
+    padding: 40px 20px;
+    margin-top: 80px;
+}
+
+/* css des bloc de chaque cours */
+
+section{
+    width: 90%;
+    display: grid;
+    grid-template-columns:repeat(auto-fill, 400px);
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.123);
+    padding: 15px;
+    grid-gap:10px;
+    justify-content: center;
+}
+
+section a{
+    text-decoration: none;
+    color: rgba(21, 20, 20, 0.966);
+    background: rgba(255, 255, 255, 0.847);
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 20px;
+    border: 1px solid white;
+}
+section a:hover{
+    border: 1px solid blue;
+}
+section h3{
+    display: flex;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+/* css icon background */
+
+section .bloc{
+    position: relative;
+}
+section .bloc:before{
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: 5px;
+    right: 10px;
+    font-size:150px;
+    opacity: 0.4;
+}
+section .bloc-html::before{
+    content: "\f13b";
+    color: rgb(210, 12, 12);
+}
+section .bloc-css::before{
+    content: "\f38b";
+    color: blue;
+}
+section .bloc-js::before{
+    content: "\f3b9";
+    color: rgb(212, 212, 6);
+}
+section .bloc-php::before{
+    content: "\f457";
+    color: rgb(0, 0, 0);
+}
+section .bloc-sql::before{
+    content: "\f1c0";
+    color: rgb(16, 4, 72);
+}
+section .bloc-wordpress::before{
+    content: "\f19a";
+    color: rgb(2, 2, 86);
+}
+section .bloc-infographie::before{
+    content: "\f5fd";
+    color: rgb(34, 2, 121);
+}
+section .bloc-bureautique::before{
+    content: "\f3ca";
+    color: rgb(28, 30, 152);
+}
+
+/* icon js de la page javascript */
+.js-icon{
+    position: relative;
+}
+
+.js-icon:before{ /* mettre en position absolute à
+    l'interieur du block js-icon et le positionner*/
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: 0;
+    left: 10px;
+    font-size:200px;
+    z-index: -10;
+}
+.js-icon::before{
+    content: "\f3b9";
+    color: rgb(212, 212, 6);
+}
+
+
+/* fin css icon background */
+/* hr et h4 des différents pages de chaque cours */
+
+hr{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    margin-top: 8px;
+}
+h4{
+    font-size: 18px;
+    text-align: center;
+}
+
+/* fin css du hr des pages de chaque cours */
+section p{
+    margin-top: 25px;
+    font-size: 15px;
+    text-align: justify;
+    line-height: 22px;
+    z-index: 99;
+}
+/* css des icones de gauches */
+.icon{
+    position: fixed;
+    left: 5px;
+    top: 35%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.icon i{
+    min-width: 40px;
+    padding: 5px;
+    margin-block: 1px;
+    border-radius: 5px;
+    background: white;
+    font-size: 40px;
+    transition: all 0.5s ease ease-in-out;
+}
+
+.fa-square-facebook{
+    color: #032e8d ;
+}
+.fa-square-facebook:hover{
+    color:#021e5a ;
+}
+.fa-github{
+    color: black;
+}
+.fa-github:hover, .fa-square-x-twitter:hover{
+    color: rgb(32, 31, 31);
+}
+.fa-linkedin{
+    color: #0077b5;
+}
+.fa-linkedin:hover{
+    color: #0a608e;
+}
+.fa-square-x-twitter{
+    color:  #000000;
+}
+
+/* css whatsapp */
+a.whatsapp{
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: underline;
+    color: #019b39;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 2%;
+    bottom:10%;
+    z-index: 9999;
+    transition: .5s ease-out;
+}
+
+a.whatsapp i{
+    text-decoration: underline;
+    border-radius: 50%;
+    padding-block: 30px;
+    background: rgba(0, 132, 4, 0.119);
+    border: 1px solid rgba(0, 132, 4, 0.159);
+    font-size: 60px;
+}
+a.whatsapp i:hover{
+    border: 1px solid rgba(0, 132, 4, 0.589);
+}
+
+footer{
+    text-align: center;
+    padding: 15px;
+    background:white;
+    color:  rgba(21, 20, 20, 0.866);
+}
+footer i{
+    font-weight: bold;
+    color: blue;
+}
+
+@media(max-width:360px){
+    header nav{
+        position: relative;
+    }
+    .icon{
+    position: fixed;
+    left: 5px;
+    top: 30%;
+    }
+    .icon i{
+    min-width: 10px;
+    padding: 2px;
+    font-size: 20px;
+    }
+    header a.logo{
+        width: 100%;
+    }
+    header a.what{
+        width: 100%;
+        margin-inline: 20px;
+        padding: 10px 0;
+    }
+    header h1{
+        font-size: 25px;
+        padding: 40px 20px;
+        margin-top: 0px;
+    }
+    header nav{
+        padding: 10px 0;
+    }
+    section{
+        grid-template-columns:repeat(auto-fill, 310px);
+    }
+    a.whatsapp{
+        font-size: 10px;
+        right: 2%;
+        bottom:50%;
+    }
+    a.whatsapp i{
+        padding-block: 15px;
+        font-size: 40px;
+    }
+    section h3{
+        font-size: 25px;
+    }
+}
+@media(max-width:180px){
+    a.whatsapp i{
+        padding-block: 15px;
+        font-size: 20px;
+    }
+}
