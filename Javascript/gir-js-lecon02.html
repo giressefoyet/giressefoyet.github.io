@@ -34,9 +34,9 @@
     <div class="lesson">
         <div class="contenu">
             <div class="objetif">
-               <strong> Contenu :</strong><br>
+               <h5> Contenu :</h5><br>
                <br><p>Cette leçon présente le concept de variable. Les variables constituent le tout premier niveau d'abstraction dans un langage de programmation. C'est un concept simple et compliqué à la fois ! </p>
-               <br><strong>Objectifs : </strong><br>
+               <br><h5>Objectifs : </h5><br>
                <br><p>Maitriser le concept de variable et savoir construire des expressions simples.</p>
             </div><hr>
             <div id="declaration" class="bs">
@@ -61,23 +61,79 @@
                     var <span> nom</span>;<b> /* déclaration ! */</b><br>
                     nom = <span>"Giresse"</span>;<b> /* affectation */</b>
                 </div>
-                <p>déclare d'abord la variable nom (définit un nouvel emplacement) et lui affecte ensuite la chaîne de caractères Superman (place à cet emplacement la valeur). Il est possible de combiner les deux opérations en une seule instruction : </p>
+                <p>déclare d'abord la variable nom (définit un nouvel emplacement) et lui affecte ensuite la chaîne de caractères <strong>Giresse</strong> (place à cet emplacement la valeur). Il est possible de combiner les deux opérations en une seule instruction : </p>
                 <div class="tab-code">var nom = <span>Giresse</span>;<b> /* déclaration et affectation */</b></div>
             </div>
             <hr>
             <div id="expression" class="bs">
                 <h3>Les expressions</h3>
                 <p>Pour accéder (obtenir) la valeur placée dans une variable, il suffit d'utiliser la nom de la variable dans une expression, comme par exemple : </p>
-
-                
+                <div class="tab-code">alert(<span>nom</span>);</div>
+                <p>La ligne précédente affiche une fenêtre avec la chaîne <strong>Giresse</strong> dedans. Lorsque JavaScript évalue l'appel à la <strong>fonction alert</strong>, il commence par évaluer le paramètre (l'expression entre parenthèses). Ici, l'expression est la variable nom et l'évaluer signifie retourner sa valeur. </p>
+                <p>On peut former des expressions aussi complexes que possible en combinant des variables, des opérateurs et des expressions. Par exemple, le code suivant : </p>
+                <div class="tab-code">alert(<span>"Je m'appel "</span> + nom);</div>
+                <p>va ouvrir une fenêtre contenant la chaîne <strong>Je m'appelle Giresse</strong>. On peut obtenir le même résultat en stockant d'abord le résultat de la concaténation dans une nouvelle variable : </p>
+                <div class="tab-code">var phrase = <span>"Je m'appel "</span> + nom; <br> alert(phrase);</div>
+                <p>On sait que JavaScript convertit au besoin un nombre en chaîne de caractères. L'opération inverse est possible via la fonction Number. Par exemple, le code suivant : </p>
+                <div class="tab-code">
+                    var x = <span>"12"</span>;<br>
+                    var y = <span>28</span>;<br>
+                    alert(x+y);<b> /*  resultat 1228*/</b><br>
+                    alert(<span>number</span>(x) + y);<b> /* convertir la chaine de carctère "12" en numbre, puis ajoute la valeur de y = 28
+                        resultat = 40*/</b>
+               </div>
+            </div><hr>
+            <div id="prompt" class="bs">
+                <h3>La fonction prompt </h3>
+                <p>On dispose de la fonction alert pour afficher une information depuis le programme vers l'extérieur. La fonction <strong>prompt</strong> offre la fonctionnalité inverse et permet à l'utilisateur de fournir au programme une information depuis l'extérieur. Cette fonction ouvre une fenêtre contenant une zone de saisie dans laquelle l'utilisateur peut taper des caractères et après avoir cliqué sur le bouton <strong>Ok</strong>, la fonction retourne la chaîne des caractères tapés par l'utilisateur. Par exemple, le code suivant : </p>
+                <div class="tab-code">var nom = prompt(<span>"Entrer votre nom : "</span>);</div>
+                <p>votre navigateur ouvre une fenêtre qui ressemble à ça </p>
+                <div class="resultat-img">
+                    <img src="../images/l02.png" alt="lecon 01">
+                </div>
+                <p>Si l'utilisateur tape les caractères Giresse et clique sur OK, alors la chaîne Giresse est affectée à la variable <strong>nom</strong>.
+                La plupart du temps, on stocke le résultat de la fonction prompt dans une variable pour une utilisation ultérieure. Mais ce n'est pas une obligation, et on pourrait écrire par exemple : </p>
+                <div class="tab-code">alert(prompt(<span>"Entrer votre nom : "</span>));</div>
+                <p>Le code précédent combine les deux fonctions alert et prompt. Pour évaluer l'appel à la fonction alert, JavaScript évalue d'abord son paramètre qui est un appel à la fonction prompt. Remarquez que ces deux fonctions sont bloquantes : tant que l'utilisateur n'a pas cliqué sur OK, l'évaluation de la fonction est suspendue. </p>
+            </div>
+            <div class="exercice" id="exercice">
+                <h6>Exercice 1</h6>
+                <p>Ecrivez un code qui demande à l'utilisateur son nom (à l'aide la fonction prompt) et qui affiche un message de bienvenue (à l'aide la fonction alert) du type Bonjour Gigi Codex, bonne journée ! (où Gigi Codex est le nom saisi par l'utilisateur). </p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 2</h6>
+                <p>Ecrivez un code qui demande à l'utilisateur trois nombres (les uns après les autres) puis affiche la moyenne de ces nombres. Produisez deux versions de ce code, une première version qui utilise au moins quatre variables et une seconde version qui n'utilise aucune variable. Pensez à utiliser la fonction Number pour convertir le résultat de la fonction prompt.</p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 3</h6>
+                <p>Ecrivez un code qui demande à l'utilisateur la largeur et la longueur d'un rectangle, et qui affiche le périmètre et la surface du rectange, chacun sur une ligne différente (vous pouvez utiliser le caractère newline '\n'). </p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 4</h6>
+                <p>Ecrivez un code qui demande à l'utilisateur la somme et la différence de deux entiers, et qui affiche ces deux entiers dans une fenêtre. Par exemple, si l'utilisateur saisit les valeurs 20 et 6, le programme affiche les nombres 13 et 7 (car 13 + 7 = 20 et 13 - 7 = 6). Votre code ne doit utiliser que deux variables.  </p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 5</h6>
+                <p>Ecrivez un code qui permet de préparer une soirée pizza. Le programme demande à l'utilisateur le nombre de parts prévu pour chaque convive, puis le nombre de convives et enfin le nombre de parts contenu dans une pizza, et affiche le nombre de pizza à commander pour la soirée. </p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 6</h6>
+                <p>Le but de cet exercice est d'explorer les fonctions (on dit aussi les méthodes) disponibles sur les chaînes de caractères. Ecrivez un code qui demande à l'utilisateur son prénom, puis son nom (à l'aide de deux prompt séparés), et qui afiche un message de bienvenue dans lequel :
+                    <ul>
+                        <li>le prénom apparaît en minuscules, avec la première lettre en majuscule </li>
+                        <li>le nom apparaît en majuscules </li>
+                    </ul>
+                </p>
             </div>
         </div>
         <div class="menu-js">  
             <div class="menu-lesson">
                 <h4>Menu leçon 01</h4>
-                <a href="#ardoisejs">L'ardoise JavaScript de Firefox</a><hr>
-                <a href="#typedebase">Types de base</a><hr>
-                <a href="#operationdebase">Opérations de base</a><hr>
+                <a href="#declaration">Déclaration de variables</a><hr>
+                <a href="#affectation">L'affectation</a><hr>
+                <a href="#expression">Les expressions</a><hr>
+                <a href="#prompt">La fonction prompt</a><hr>
+                <a href="#exercice">Exercices</a><hr>
             </div> 
             <div class="menu-lesson">
                 <h4>Menu Cours JavaScript</h4>
@@ -96,8 +152,8 @@
         </div>
     </div>
     <div class="btn-navet">
-        <a href="gir-javascript.html">Chapitre Précedent</a>
-        <a href="gir-js-lecon02.html">Chapitre Suivant</a>
+        <a href="gir-js-lecon01.html">Chapitre Précedent</a>
+        <a href="gir-js-lecon03.html">Chapitre Suivant</a>
     </div>
     <div class="icon">
         <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
