@@ -10,6 +10,8 @@ body{
     background: linear-gradient(30deg, rgba(226,138,0,0.8029411593739058) 0%, rgba(229,255,30,1) 100%);
     background-repeat: no-repeat;
 }
+
+/* emptecher que le texte soit selectionner sur la page */
 .unselect-texte {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
@@ -160,6 +162,26 @@ section .bloc-bureautique::before{
     content: "\f3ca";
     color: rgb(28, 30, 152);
 }
+
+/* icon js de la page javascript */
+.js-icon{
+    position: relative;
+}
+
+.js-icon:before{ /* mettre en position absolute à
+    l'interieur du block js-icon et le positionner*/
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: 0;
+    left: 10px;
+    font-size:200px;
+    z-index: -10;
+}
+.js-icon::before{
+    content: "\f3b9";
+    color: rgb(212, 212, 6);
+}
+
 
 /* fin css icon background */
 /* hr et h4 des différents pages de chaque cours */
