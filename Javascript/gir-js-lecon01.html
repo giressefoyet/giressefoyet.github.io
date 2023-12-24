@@ -28,11 +28,59 @@
                 <a href="https://wa.me/237699318917" class="what" target="_blank">contact-me</a>
             </nav>
         </div>
-        <h1>JavaScript | Leçon 01 : Introduction</h1>
+        <h1>JavaScript | Leçon 01 : Introduction à JavaScript</h1>
     </header>
     <!-- fin du header -->
     <div class="lesson">
-        <div class="contenu"></div>
+        <div class="contenu">
+            <div class="objetif">
+               <strong> Contenu :</strong><br>
+               <br><p>Cette leçon présente l'environnement de travail (l'ardoise JavaScript de Firefox) et développe les tout premiers concepts du langage</p>
+               <br><strong>Objectifs : </strong><br>
+               <br><p>Comprendre l'environnement de travail, apprendre quelques éléments de base du langage</p>
+            </div><hr>
+            <div id="ardoisejs" class="bs">
+                <h3>L'ardoise JavaScript de Firefox</h3>
+                <p>
+                    Firefox propose une ardoise JavaScript appelée Scratchpad. Pour l'activer, aller dans le menu
+                    en haut à droite, puis dans Developpeur, et enfin Scratchpad, ou plus simplement faites <strong>shift-F4</strong>
+                    sur votre clavier ! Une fois l'ardoise ouverte, vous pouvez taper du code JavaScript dedans, 
+                    l'exécuter et voir le résultat. Par exemple, taper la ligne suivante :
+                </p>
+                <div class="tab-code">alert(<span>"Bonjour"</span> )</div>
+                <p>Cliquez ensuite sur <strong>Run</strong> et vous verrez apparaitre une fenêtre avec le texte Bonjour dedans qui doit ressembler à ça </p>
+                <div class="resultat-img">
+                    <img src="../images/l01.png" alt="lecon 01">
+                </div>
+                <p>La fonction <strong>alert()</strong> permet d'ouvrir une fenêtre avec un message dedans, et bloque tout autre évaluation tant que l'utilisateur n'a pas cliqué sur <strong>OK</strong>. On va se servir de cette fonction tout au long des leçons pour pouvoir afficher une valeur depuis un programme <strong>JavaScript</strong>.</p>
+                <p>Il est possible de sauvegarder le contenu de l'ardoise dans un fichier puis de charger le contenu du fichier dans l'ardoise ultérieurement. L'alternative est de <strong>créer un fichier JavaScript</strong> avec votre éditeur favori, puis de charger ensuite le fichier dans l'ardoise.</p>
+                
+            </div>
+            <hr>
+            <div id="typedebase" class="bs">
+                <h3>Types de base</h3>
+                <p>JavaScript sait manipuler des valeurs élémentaires comme les nombres et les chaines de caractères. Par <strong>manipuler</strong> on veut dire <strong>calculer avec</strong>, comme par exemple combiner des nombres avec des opérations pour calculer d'autres nombres. Par exemple, exécutez ce code dans <strong>Scratchpad</strong> : </p>
+                <div class="tab-code">alert(<span> 5 * 6 - 18 / 2</span> );</div>
+                <p>et vous verrez apparaitre une fenêtre avec le nombre <strong>21</strong> à l'intérieur. JavaScript calcule (on dit évalue) toutes les expressions qu'il rencontre. On peut fabriquer des expressions mathématiques de taille quelconque en combinant des nombres et des opérateurs, et onpeut utiliser des paranthèses (les caractères <strong>'('</strong> et <strong>')'</strong> ) pour résoudre les problèmes de précédence. Par exemple, exécutez ce code dans Scratchpad :</p>
+                <div class="tab-code">alert(<span>  5 * ( 6 - 18 ) / 2</span> );</div>
+                <p>et comparez le résultat avec le code précédent ! <br>Exécutez maintenant ce code dans Scratchpad : </p>
+                <div class="tab-code">alert(<span>"5 * 6 - 18 / 2"</span> );</div>
+                <p>et vous verrez apparaitre une fenêtre avec la chaîne de caractères 5 * 6 - 18 / 2 à l'intérieur. Une chaîne de caractères est délimitée par une <strong>paires de double-quote (le caractère ")</strong>. La valeur d'une chaîne de caractères est la chaÎne elle-même, un peu comme la valeur d'un nombre est le nombre lui-même. </p>
+            </div>
+            <hr>
+            <div id="operationdebase" class="bs">
+                <h3>Opérations de base</h3>
+                <p>JavaScript connait un grand nombre d'opérations de base. Par exemple, tous les opérateurs arithmétiques sont disponibles en JavaScript <strong>(+, -, *, /, etc.)</strong>. Sur les chaînes de caractères, on dispose aussi d'un grand nombre de fonctions et d'opérateurs. Pour l'instant, on s'intéresse à l'opérateur + qui permet de fabriquer une nouvelle chaîne en concaténant deux chaînes existantes. Cet opérateur a le même nom que l'addition entre les nombres bien que ce soit un opérateur différent. JavaScript fait la différence en fonction du contexte. Par exemple, exécutez le code suivant : </p>
+                <div class="tab-code">
+                    <ol>
+                        <li>alert(<span>5 + 2 </span>); <b>// resultat : 7,  c'est bien la somme de deux nombres</b></li>
+                        <li>alert( <span>"5" + "2"</span>); <b>// resultat : 52 : c'est bien la concaténation de deux chaînes</b></li>
+                        <li>alert( <span>"5" + 2</span> ); <b>/* resultat : 52 : ici, JavaScript ne connait pas d'opérateur + qui mélange une chaîne et un nombre. Il choisit donc l'opération la plus sûre et convertit le nombre en chaîne de caractères, puis réalise la concaténation ! Quelle était l'alternative et en quoi ce choix est-il le plus sûr ? */</b></li>
+                        <li>alert( <span>5 + "2"</span> ); <b>// resultat : 52 : même chose que précédemment</b></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
         <div class="menu-js">  
             <div class="menu-lesson">
                 <h4>Menu leçon 01</h4>
@@ -42,21 +90,24 @@
             </div> 
             <div class="menu-lesson">
                 <h4>Menu Cours JavaScript</h4>
-                <a  href="gir-js-lecon01.html">Leçon 01 : Introduction</a><hr>
-                <a  href="gir-js-lecon02.html">Leçon 02 : Les variables</a><hr>
-                <a  href="gir-js-lecon03.html">Leçon 03 : Formes conditionnelles</a><hr>
-                <a  href="gir-js-lecon04.html">Leçon 04 : Les boucles</a><hr>
-                <a  href="gir-js-lecon05.html">Leçon 05 : Les tableaux</a><hr>
-                <a  href="gir-js-lecon06.html">Leçon 06 : Les fonctions</a><hr>
-                <a  href="gir-js-lecon07.html">Leçon 07 : JavaScript et HTML</a><hr>
-                <a  href="gir-js-lecon08.html">Leçon 08 : Les formulaires</a><hr>
-                <a  href="gir-js-lecon09.html">Leçon 09 : Les images et les délais</a><hr>
-                <a  href="gir-js-lecon10.html">Leçon 10 : Introduction à JQuery</a><hr>
-                <a  href="gir-js-lecon11.html">Leçon 11 : AJAX par l'exemple</a><hr>
+                <a  href="gir-js-lecon01.html">Leçon 01 : Introduction<hr></a>
+                <a  href="gir-js-lecon02.html">Leçon 02 : Les variables<hr></a>
+                <a  href="gir-js-lecon03.html">Leçon 03 : Formes conditionnelles<hr></a>
+                <a  href="gir-js-lecon04.html">Leçon 04 : Les boucles<hr></a>
+                <a  href="gir-js-lecon05.html">Leçon 05 : Les tableaux<hr></a>
+                <a  href="gir-js-lecon06.html">Leçon 06 : Les fonctions<hr></a>
+                <a  href="gir-js-lecon07.html">Leçon 07 : JavaScript et HTML<hr></a>
+                <a  href="gir-js-lecon08.html">Leçon 08 : Les formulaires<hr></a>
+                <a  href="gir-js-lecon09.html">Leçon 09 : Les images et les délais<hr></a>
+                <a  href="gir-js-lecon10.html">Leçon 10 : Introduction à JQuery<hr></a>
+                <a  href="gir-js-lecon11.html">Leçon 11 : AJAX par l'exemple<hr></a>
             </div>
         </div>
     </div>
-
+    <div class="btn-navet">
+        <a href="gir-javascript.html">Chapitre Précedent</a>
+        <a href="gir-js-lecon02.html">Chapitre Suivant</a>
+    </div>
     <div class="icon">
         <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
         <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
