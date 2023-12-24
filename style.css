@@ -193,3 +193,20 @@ footer i{
     font-weight: bold;
     color: blue;
 }
+
+@media(max-width:360px){
+    header nav{
+        position: relative;
+    }
+    .icon{
+    position: fixed;
+    left: 5px;
+    top: 10%;
+    }
+    .icon i{
+    min-width: 10px;
+    padding: 2px;
+    font-size: 20px;
+    }
+
+}
