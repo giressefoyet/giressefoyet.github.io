@@ -130,45 +130,76 @@ section .bloc:before{
     font-size:150px;
     opacity: 0.4;
 }
-section .bloc-html::before{
+section .bloc-html::before,
+.html-icon::before
+{
     content: "\f13b";
     color: rgb(210, 12, 12);
 }
-section .bloc-css::before{
+section .bloc-css::before,
+.css-icon::before
+{
     content: "\f38b";
     color: blue;
 }
-section .bloc-js::before{
+section .bloc-js::before,
+.js-icon::before
+{
     content: "\f3b9";
     color: rgb(212, 212, 6);
 }
-section .bloc-php::before{
+section .bloc-php::before,
+.php-icon::before
+{
     content: "\f457";
     color: rgb(0, 0, 0);
 }
-section .bloc-sql::before{
+section .bloc-sql::before,
+.mysql-icon:before
+{
     content: "\f1c0";
     color: rgb(16, 4, 72);
 }
-section .bloc-wordpress::before{
+section .bloc-wordpress::before,
+.wordpress-icon::before
+{
     content: "\f19a";
     color: rgb(2, 2, 86);
 }
-section .bloc-infographie::before{
+section .bloc-infographie::before,
+.infographie-icon::before
+{
     content: "\f5fd";
     color: rgb(34, 2, 121);
 }
-section .bloc-bureautique::before{
+section .bloc-bureautique::before,
+.bureautique-icon:before
+{
     content: "\f3ca";
     color: rgb(28, 30, 152);
 }
 
-/* icon js de la page javascript */
-.js-icon{
+/* icon de chaque page javascript */
+.js-icon,
+.html-icon,
+.css-icon,
+.php-icon,
+.infographie-icon,
+.bureautique-icon,
+.mysql-icon,
+.wordpress-icon{
     position: relative;
 }
 
-.js-icon:before{ /* mettre en position absolute à
+.js-icon:before,
+.html-icon:before,
+.css-icon:before,
+.php-icon:before,
+.infographie-icon:before,
+.bureautique-icon:before,
+.mysql-icon:before,
+.wordpress-icon:before
+{ /* mettre en position absolute à
     l'interieur du block js-icon et le positionner*/
     position: fixed;
     font-family: 'FontAwesome';
@@ -177,11 +208,17 @@ section .bloc-bureautique::before{
     font-size:200px;
     z-index: -10;
 }
-.js-icon::before{
-    content: "\f3b9";
-    color: rgb(212, 212, 6);
-}
 
+.html-icon::before,
+.css-icon::before,
+.php-icon::before,
+.infographie-icon::before,
+.bureautique-icon::before,
+.mysql-icon::before,
+.wordpress-icon::before
+{
+    opacity: 0.158;
+}
 
 /* fin css icon background */
 /* hr et h4 des différents pages de chaque cours */
