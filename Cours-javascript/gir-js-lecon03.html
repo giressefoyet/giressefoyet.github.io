@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecon.css">
+    <script src="https://kit.fontawesome.com/75d37dea60.js" crossorigin="anonymous"></script>
+    <!--     lien des icones du site web -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Giresse FOYET | Cours</title>
+    <link rel="shortcut icon" href="../images/icon.png" type="image/x-icon">
+</head>
+<body class="js-icon">
+    <!-- Entête du cours HTML, CSS, JS, PHP, SQL, React -->
+    <header>
+        <div class="entete">
+            <nav>
+                <a href="../index.html" class="logo">GIGI-CODEX</a>
+                <a href="gir-html.html" class="link">html5</a>
+                <a href="gir-css.html" class="link">css3</a>
+                <a href="gir-javascript.html" class="link">Javascript</a>
+                <a href="gir-php.html" class="link">Php</a>
+                <a href="gir-sql.html" class="link">Sql</a>
+                <a href="gir-wordpress.html" class="link">wordpress</a>
+                <a href="gir-infographie.html" class="link">infographie</a>
+                <a href="gir-bureautique.html" class="link">bureautique</a>
+                <a href="https://wa.me/237699318917" class="what" target="_blank">contact-me</a>
+            </nav>
+        </div>
+        <h1>JavaScript | Leçon 03 : Les Formes conditionnelles </h1>
+    </header>
+    <!-- fin du header -->
+    <div class="lesson">
+        <div class="contenu">
+            <div class="objetif">
+               <h5> Contenu :</h5><br>
+               <p>Cette leçon introduit les structures de contrôle conditionnelles if et switch. La leçon introduit également deux nouveaux types de donnée, le type booléen et le type Date.  </p>
+               <br><h5>Objectifs : </h5><br>
+               <p>Maîtriser les concepts de code conditionnel, d'expression booléennes et de test. Savoir écrire des codes simples utilisant les structures de contrôle if et switch. Savoir utiliser le type Date. </p>
+            </div><hr>
+            <div id="if" class="bs">
+                <h3>La forme <strong>if</strong></h3>
+                <p>
+                    La forme <strong>if</strong>est une structure de contrôle qui peut modifier le déroulement linéaire d'un programme et permettre d'exécuter des portions de code de manière conditionelle. Soit la phrase/situation réelle suivante :  
+                   <br>Exemple: Code Js qui dit: S'il pleut, je prends mon parapluie, sinon, je prends mes lunettes de soleil ! 
+                </p>
+                <div class="tab-code">
+                    var temps = <span>prompt("Pluie ou soleil ?", "soleil")</span>;<br>
+                    if ( temps == <span>"pluie"</span> ) {<br>
+                        alert( <span>"Je prends mon parapluie"</span> );<br>
+                    } <br>
+                    else {<br>
+                        alert( <span>"Je prends mes lunettes de soleil"</span> );<br>
+                    }
+               </div>
+                <p>
+                    Dans cet exemple, l'utilisateur est sensé saisir le mot pluie ou le mot soleil, et le code affiche le message adéquat. L'instruction <span>if</span> commence avec le mot-clef <span>if</span> immédiatement suivi d'un test. Un test est une expression booléenne (une peu comme une expression arithmétique) qui délivre seulement deux valeurs possibles, true (vrai) ou false (faux). Dans l'exemple précédent, le test est construit à l'aide de l'opérateur == qui teste l'égalité de deux expressions. On teste ici si le contenu de la variable temps est égal à la chaîne de caractères "pluie". Si c'est le cas (donc si la valeur de l'expression booléenne est true), seul le code placé dans le bloc juste suivant est exécuté, sinon (donc si la valeur de l'expression booléenne est false), seul le code placé dans le bloc suivant le mot-clef else est exécuté. 
+                </p>
+                <p>Une erreur très classique et très fréquente consiste à utiliser l'affectation = à la place de ==, l'opérateur de comparaison. Malheureusement, JavaScript ne vous préviendra pas si vous faites cette erreur et vous passerez pas mal de temps à détecter le problème ! </p>
+            </div>
+            <hr>
+            <div id="confirm" class="bs">
+                <h3>La fonction <span>confirm</span> </h3>
+                <p>Remarquez que dans l'exemple précédent, si l'utilisateur saisit n'importe qu'elle chaîne de caractères différente de "pluie", le code prend la branche "else" du if. Dans ce genre de situation, on peut utiliser la fonction confirm. Cette fonction ouvre une fenêtre avec un message à la manière de la fonction alert, mais l'utilisateur a maintenant deux boutons sur lesquels cliquer : le bouton OK ou le bouton Cancel. Si le bouton OK est cliqué, la fonction retourne la valeur true, sinon elle retourne la valeur false. En utilisant cette fonction, le code précédent devient : </p>
+                <div class="tab-code">
+                    if ( confirm(<span>"pluie"</span>) ) {<br>
+                        alert( <span>"Je prends mon parapluie"</span> );<br>
+                    } <br>
+                    else {<br>
+                        alert( <span>"Je prends mes lunettes de soleil"</span> );<br>
+                    }
+                </div>
+                <p>Notez que dans ce nouvel exemple, on utilise directement la fonction en place du test, ce qui ne pose pas de problème pusique l'appel d'une fonction qui délivre une valeur est bien une expression. On pourrait cependant développer ce code et ajouter une étape en utilisant une variable </p>
+                <div class="tab-code">
+                    var reponse = confirm(<span>"pluie"</span>) <br>
+                    if ( reponse ) {<br>
+                        alert( <span>"Je prends mon parapluie"</span> );<br>
+                    } <br>
+                    else {<br>
+                        alert( <span>"Je prends mes lunettes de soleil"</span> );<br>
+                    }
+                </div>
+                <div class="exercice">
+                    <h6>Exercice 1</h6>
+                    <p>Reprenez l'exercice 6 de la leçon 2, en ajoutant la fonctionnalité suivante : après avoir saisi les prénom et nom de l'utilisateur, le programme demande le sexe (homme ou femme) à l'utilisateur, et affiche le message en conséquence (le message commencera alors par "Bonjour Monsieur ..." ou bien "Bonjour Madame ..."). </p>
+                </div>  
+            </div>
+            <hr>
+            <div id="structure" class="bs">
+                <h3>Structures emboitées</h3>
+                <p>Il est possible de combiner toutes les structures de contrôle entr'elles et autant de fois qu'on veut. Par exemple, on peut mettre une nouvelle forme if dans la partie then et/ou else d'une forme if. Par exemple, la nouvelle situation phrase/situation réelle suivante : </p>
+                <p>Exemple : S'il pleut, alors, s'il vente alors je prends mon K-way sinon je prends mon parapluie, sinon je prends mes lunettes de soleil ! </p>
+                <p>peut être transcrite en JavaScript de la façon suivante : </p>
+                <div class="tab-code">
+                    if ( confirm( <span>"Pluie ?"</span> ) ) {<br>
+                        if ( confirm( <span>"Vent ?"</span> ) ) { <br>
+                            alert( <span>"Je prends mon K-way"</span> ); <br>
+                        } <br>
+                        else { <br>
+                            alert( <span>"Je prends mon parapluie"</span> ); <br>
+                        } <br>
+                    } <br>
+                    else { <br>
+                        alert( <span>"Je prends mes lunettes de soleil"</span> ); <br>
+                    }
+                </div>
+                <p>Le code précédent est correctement indenté pour faciliter sa lecture. Cette indentation rend compte de la structure imbriquée des deux formes if. Cependant, cette indentation est ignorée par JavaScript pour qui seuls comptent les blocs délimités par les accolades ( <span>les caractères { }</span> ). Bien indenter son code est absolument <strong>fondamental</strong> si vous voulez réussir à écrire des codes complexes dans un temps raisonnable ! </p>
+                <div class="exercice">
+                    <h6>Exercice 2</h6>
+                    <p>Reprenez l'exercice 1 de cette leçon, cette fois en distinguant les dames et les demoiselles : dans le cas où l'utilisateur est une femme, le programme lui demande si elle est mariée, et affiche le message en conséquence (le message commencera alors par "Bonjour Monsieur ..." ou bien par "Bonjour Madame ..." ou par "Bonjour Mademoiselle ...").  </p>
+                </div>  
+            </div><hr>
+            <div id="opérateurs" class="bs">
+                <h3 style="text-transform: uppercase;">Les opérateurs </h3>
+                <p>Un <strong>opérateur</strong> en JS est un symbole qui est utilisé pour des opérations, actions ou instructions sur des variables.</p>
+                <p>nous utilisons depuis le départ de ce cours sur le JavaScript, l'opérateur <strong>= (égal)</strong>. Il nous permet d'assigner une valeur à une variable, L'opérateur <strong>=</strong>fait partie de la famille des <strong>opérateurs d’affectation</strong> ou <strong>d’assignation.</strong> </p><br>
+                <h3>Les types d'opérateurs </h3>
+                <p>
+                    Il existe différents types d’opérateurs. Ils permettent de réaliser des actions différentes. Ci-après la liste des types d'opérateurs que nous aborderons dans ce cours.
+                    <ul>
+                        <li>Les opérateurs arithmétiques ;</li>
+                        <li>Les opérateurs d’affectation ou d’assignation ;</li>
+                        <li>Les opérateurs d’incrémentation et décrémentation ;</li>
+                        <li>Les opérateurs de comparaison ;</li>
+                        <li>Les opérateurs logiques ;</li>
+                        <li>L’opérateur de concaténation.</li>
+                    </ul>
+                </p>
+                <br>
+                <h3>I- Les opérateurs arithmétiques</h3>
+                <p>Les opérateurs arithmétiques s'utilisent uniquement avec les variables de type number. Ils permettent d'effectuer des opérations mathématiques entre des variables.</p>
+                <p>Les différents opérateurs arithmétiques en JavaScript sont les suivants :</p>
+                <table>
+                    <tr class="couleur">
+                        <th>Opérateur</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td> + </td>
+                        <td>Permet de réaliser des additions</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> - </td>
+                        <td>Permet de réaliser des soustractions</td>
+                    </tr>
+                    <tr>
+                        <td> * </td>
+                        <td>Permet de réaliser des multiplications</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> / </td>
+                        <td>Permet de réaliser des divisions</td>
+                    </tr>
+                </table>
+                <p>Notez bien que \n permet en JavaScript de faire un retour à la ligne. C'est l'équivalent du <br /> en HTML.</p>
+                
+                <br><h3>Les opérateurs d’affectation ou d’assignation</h3>
+                <p>Il n'existe pas que l'opérateur = (égale) pour assigner une valeur à une variable. Ci-après la liste des opérateurs que nous utiliserons dans ce cours.</p>
+                <table>
+                    <tr class="couleur">
+                        <th>Opérateur</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td> ++ </td>
+                        <td>Incrémente de 1 la variable</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> -- </td>
+                        <td>Décrémente de 1 la variable</td>
+                    </tr>
+                    <tr>
+                        <td> += </td>
+                        <td>Additionne puis affecte le résultat à la variable</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> -= </td>
+                        <td>Soustrait puis affecte le résultat à la variable</td>
+                    </tr>
+                </table>
+                <p>Autre précision, l'opérateur <strong>++</strong> est aussi appelé l'opérateur <strong>d'incrémentation</strong> et <strong>--</strong> est aussi appelé l'opérateur de <strong>décrémentation</strong>.</p>
+                <br>
+                <h3>L'opérateur de la concaténation</h3>
+                <p>Le terme concaténation en JS désigne l'action de <strong>mettre bout à bout au moins deux chaînes de caractères</strong>.</p>
+                <div class="tab-code">
+                    let salut = <span>'Bonjour'</span>;
+                    let prenom = <span>'Giresse'</span>;
+                    console.log(salut +' '+ prenom + ' ' + <span>'Bienvenu !'</span>); 
+                </div>
+                <p>Tapez ce bout de code et observer le Résultat dans votre console</p>
+                <div class="resultat-img">
+                    <img src="../images/l03.png" alt="lecon 01">
+                </div>
+
+                <br>
+                <h3>Les opérateurs de comparaison</h3>
+                <p>On dispose en JavaScript plusieurs opérateurs de comparaisons numériques, à savoir :</p>
+                <table>
+                    <tr class="couleur">
+                        <th>Opérateur</th>
+                        <th>Description</th>
+                        <th>Exemple</th>
+                    </tr>
+                    <tr>
+                        <td> == </td>
+                        <td>true si la valeur est égale à</td>
+                        <td> if(azerty == qwerty)</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> != </td>
+                        <td>true si la valeur est différente de</td>
+                        <td> if(azerty != qwerty)</td>
+                    </tr>
+                    <tr>
+                        <td> > </td>
+                        <td>true si la valeur est différente de</td>
+                        <td> if(azerty > qwerty)</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> < </td>
+                        <td>true si la valeur est strictement inférieure à</td>
+                        <td> if(azerty < qwerty)</td>
+                    </tr>
+                    <tr>
+                        <td> >= </td>
+                        <td>true si la valeur est supérieure ou égale à</td>
+                        <td> if(azerty >= qwerty)</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> <= </td>
+                        <td>true si la valeur est inférieure ou égale à</td>
+                        <td> if(azerty <= qwerty)</td>
+                    </tr>
+                </table>
+                <p>Nous avons la fonction à valeurs booléennes comme par exemple la <strong>fonction isNaN</strong> . Cette fonction teste son paramètre et retourne <strong>true</strong> si celui-ci n'est pas un nombre valide (<strong>isNaN</strong> est l'acronyme de <strong>is-Not-a-Number</strong> )</p>
+                <br>
+                <h3>Les opérateurs logiques</h3>
+                <p>les opérateurs logiques sont utilisés pour combiner des tests de conditions. Grâce à ces opérateurs, il est possible d'ajouter plus d'un test de condition dans une seule <strong>instruction if</strong>. Ci-après un exemple pour les utiliser.</p>
+                <table>
+                    <tr class="couleur">
+                        <th>Opérateur</th>
+                        <th>Description</th>
+                        <th>Exemple</th>
+                    </tr>
+                    <tr>
+                        <td> && </td>
+                        <td>true seulement si tous les tests de condition sont évalués à true</td>
+                        <td> if(azerty && qwerty)</td>
+                    </tr>
+                    <tr class="couleur">
+                        <td> || </td>
+                        <td>true seulement si l'un des tests de condition est évalué à true</td>
+                        <td> if(azerty || qwerty)</td>
+                    </tr>
+                    <tr>
+                        <td> ! </td>
+                        <td>Inverse la logique d'un test de condition</td>
+                        <td> if(!azerty)</td>
+                    </tr>
+                </table>
+                <div class="tab-code">
+                    let a = 10;<br>
+                    let b = 5;<br>
+                    let c = 0;<br>
+                    if( a<span> && </span> b<span> && </span>c ) {<br>
+                    console.<span>log</span>( <span>'Les variables $a, $b et $c contiennent des valeurs différentes de false.'</span> );<br>
+                    } else {<br>
+                    console.<span>log</span>( <span>'Une des variables $a, $b ou $c contient false comme valeur.'</span> );<br>
+                    } <br> <br>
+
+                    if(a >= 10 <span>||</span> b >= 10 <span>||</span> c >= 10) {<br>
+                    console.<span>log</span>( <span>'Une des variables $a, $b ou $c a une valeur supérieure ou égale à 10.'</span> ); <br>
+                    } else { <br>
+                    console.<span>log</span>( <span>'Aucune des variables $a, $b ou $c ne contient une valeur supérieure ou égale à 10.'</span> );
+                    } <br>
+
+                    if( <span>!</span>c ) { <br>
+                    console.<span>log</span>( <span>'La variable $c a une valeur équivalente à false.'</span> ); <br>
+                    } else { <br>
+                    console.<span>log</span>( <span>'La variable $c a une valeur équivalent à true.'</span> ); <br>
+                    } <br> <br> <br>
+
+                    var pluie = confirm( <span>"Pluie ?"</span> ); <br>
+                    var vent  = confirm( <span>"Vent ?"</span> );
+                    var temperature = prompt( <span>"Température ?",""</span> );
+
+                    if ( isNaN <span>( temperature )</span> ) <br>
+                        alert( <span>"La température n'est pas valide !"</span> ); <br>
+                    else { <br>
+                        if ( pluie && vent ) <br>
+                            alert( <span>"Je prends mon ciré"</span> ); <br>
+                        if ( Number( temperature )  < 10 ) <br>
+                            alert( <span>"Je prends mon pull"</span> ); <br>
+                    }
+
+                </div>
+            </div>
+
+            <div class="exercice" id="exercice">
+                <h6>Exercice 3</h6>
+                <p>Ecrivez un programme qui demande à l'utilisateur son prénom (X dans la suite), puis son âge. Si l'utilisateur a moins de 18 ans, le programme affiche un message du type "Désolé X, vous n'avez pas l'âge de conduire". Sinon, le programme demande à l'utilisateur s'il possède le permis de conduire : dans l'affirmative, le programme affiche le message "Au revoir X et bonne route", sinon il affiche le message "Désolé X, il est interdit de conduire sans permis". On suppose que les valeurs fournies par l'utilisateur sont correctes (par exemple, lors de la saisie de l'âge, on est sûr que la chaîne de caractères fournies représente un entier).</p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 4</h6>
+                <p>Ecrivez un programme qui permet de saisir 3 notes entre 0 et 20, qui calcule et affiche la moyenne obtenue suivie de l'un des commentaires suivants : 
+                    <ul>
+                        <li>"très insuffisant" si la moyenne est strictement inférieure à 6</li>
+                        <li>"insuffisant" si la moyenne est supérieure ou égale à 6 et strictement inférieure à 10</li>
+                        <li>"moyen" si la moyenne est supérieure ou égale à 10 et strictement inférieure à 13</li>
+                        <li>"bien" si la moyenne est supérieure ou égale à 13 et strictement inférieure à 16</li>
+                        <li>"très bien" si la moyenne est supérieure ou égale à 16 et strictement inférieure à 19</li>
+                        <li>"excellent" si la moyenne est supérieure ou égale à 19</li>
+                    </ul>
+                    On suppose que les valeurs fournies par l'utilisateur sont correctes
+                </p>
+            </div>
+            <div class="exercice">
+                <h6>Exercice 5</h6>
+                <p>Ecrivez un programme qui sert de répétiteur pour apprendre les tables de multiplication. A l'aide de la fonction prompt le programme doit proposer à l'utilisateur une multiplication entre deux nombres tirés au hasard dans l'intervalle [2,10]. Le programme affiche le message adéquat en fonction de la réponse de l'utilisateur. Si la réponse est incorrecte, le programme affiche l'opération et sa réponse (comme par exemple "Faux : 8 x 7 = 56 !"). Pour tirer un nombre au hasard dans un intervalle donné, vous devez étudier et utiliser les fonctions random et floor. Ces fonctions sont définies dans une classe JavaScript qui s'appele Math. Pour appeler une fonction définie dans cette classe, il faut préfixer le nom de la fonction par le nom de la classe. Par exemple, pour appeler la fonction random il faut écrire Math.random() (cette fonction ne prend aucun argument). On suppose que les valeurs fournies par l'utilisateur sont correctes (c'est à dire sont bien des nombres). </p>
+            </div>
+             <hr>
+            <div id="switch" class="bs">
+                <h3>La forme <strong>switch</strong></h3>
+                <p>La forme <strong>switch</strong> est une autre structure de contrôle. Elle permet de faire plusieurs tests consécutifs sur la valeur d'une expression. Ce branchement conditionnel peut simplifier le test de plusieurs valeurs possible d'une expression par rapport à des formes <strong> if imbriqués</strong>, comme par exemple dans le code suivant : </p>
+                <p>Elle peut être transcrite en JavaScript de la façon suivante : </p>
+                <div class="tab-code">
+                    var nationalite = prompt( <span> "Entrez le nom d'un pays",""</span> ); <br>
+
+                    switch ( <span>nationalite.trim().toLowerCase()</span> ) { <br>
+                    case <span>"france"</span>   : alert( <span>"Bonjour !"</span> ); break; <br>
+                    case <span>"italie"</span>   : alert( <span>"Buon giorno !"</span> ); break; <br>
+                    case <span>"espagne"</span>  : alert( <span>"Buenos dia !"</span> ); break; <br>
+                    case <span>"portugal"</span> : alert( <span>"Bom dia !"</span> ); break; <br>
+                    case <span>"allemagne"</span>: alert(<span> "Guten morgen !"</span> ); break; <br>
+                    default: alert( <span>"Désolé, on ne parle pas cette langue"</span> ); <br>
+                    } <br> <br>
+
+                    alert( <span>"A bientôt"</span> ); <br>
+                </div>
+                <p>Chaque cas déclaré par le mot-clef <strong>case </strong> définit une branche qu'on emprunte quand la valeur de l'expression est égale à la valeur qui suit le case en question. Après le caractère <strong>':'</strong> on peut placer autant d'instructions que nécessaire. L'instruction <strong>break</strong> termine une branche et également l'exécution du <strong>switch</strong>. On le place donc généralement à la fin d'une branche. Le mot-clef <strong>default</strong> peut optionnellement définir une branche par défaut : c'est la dernière branche que l'on empruntera si tous les tests précédents ont échoués.  </p>
+                <p>Une erreur très classique consiste à oublié une ou plusieurs instructions break. Dans ce cas, les branches suivant la branche empruntée seront également exécutées. L'absence de break n'est pas une erreur en soi, et dans certain cas, cette absence est volontaire. JavaScript ne signalera donc pas l'absence de l'instruction break et si c'est un oubli de votre part, vous passerez sans doute un peu de temps avant de découvrir l'erreur ! </p>
+                <div class="exercice">
+                    <h6>Exercice 6</h6>
+                    <p>Cette exercice a pour but d'expérimenter l'instruction <span>switch</span> et également de découvrir le type <strong>Date</strong>. Le type <strong>Date</strong> permet de manipuler des dates. En particulier, l'expression <strong>new Date()</strong> retourne un objet de type <strong>Date</strong> qui contient la date de l'instant ou l'expression a été évaluée par JavaScript. A l'aide de deux instructions <strong>switch</strong>, écrivez un programme qui affiche la date courante en français (par exemple "lundi 7 septembre 2015"). </p>
+                </div>
+                <div class="exercice">
+                    <h6>Exercice 7</h6>
+                    <p>Cette exercice a pour but d'explorer un peu plus avant le type <strong>Date</strong>. Dans l'exercice précédent, vous avez utilisé l'expression <strong>new Date()</strong> pour récupérer un objet de type Date contenant la date courante. Remarquez que le constructeur Date peut prendre en paramètre une chaîne de caractères représentant une date au format ISO 8601 (par exemple "2015-09-07"). Dans ce cas, l'objet de type Date retourné contiendra cette date. En vous inspirant de l'exercice précédent, écrivez un programme qui demande à l'utilisateur de saisir une date sous la forme d'une chaine de caractères au format ISO 8601 et qui affiche le jour de la semaine en français correspondant à cette date. Par exemple, si la date saisie par l'utilisateur est "2015-09-07", le programme doit afficher "lundi 7 septembre 2015". On suppose que les valeurs fournies par l'utilisateur sont correctes (c'est à dire des chaînes de caractères représentant des dates valides au format ISO 8601). </p>
+                </div>  
+            </div><hr>
+        </div>
+        <div class="menu-js">  
+            <div class="menu-lesson">
+                <h4>Menu leçon 01</h4>
+                <a href="#if">La forme if</a><hr>
+                <a href="#confirm">La fonction confirm</a><hr>
+                <a href="#structure">Structures emboitées</a><hr>
+                <a href="#operateur">Les opérateurs logiques</a><hr>
+                <a href="#switch">La forme switch</a><hr>
+            </div> 
+            <div class="menu-lesson">
+                <h4>Menu Cours JavaScript</h4>
+                <a  href="gir-js-lecon01.html">Leçon 01 : Introduction<hr></a>
+                <a  href="gir-js-lecon02.html">Leçon 02 : Les variables<hr></a>
+                <a  href="gir-js-lecon03.html">Leçon 03 : Formes conditionnelles<hr></a>
+                <a  href="gir-js-lecon04.html">Leçon 04 : Les boucles<hr></a>
+                <a  href="gir-js-lecon05.html">Leçon 05 : Les tableaux<hr></a>
+                <a  href="gir-js-lecon06.html">Leçon 06 : Les fonctions<hr></a>
+                <a  href="gir-js-lecon07.html">Leçon 07 : JavaScript et HTML<hr></a>
+                <a  href="gir-js-lecon08.html">Leçon 08 : Les formulaires<hr></a>
+                <a  href="gir-js-lecon09.html">Leçon 09 : Les images et les délais<hr></a>
+                <a  href="gir-js-lecon10.html">Leçon 10 : Introduction à JQuery<hr></a>
+                <a  href="gir-js-lecon11.html">Leçon 11 : AJAX par l'exemple<hr></a>
+            </div>
+        </div>
+    </div>
+    <div class="btn-navet">
+        <a href="gir-js-lecon02.html">Chapitre Précedent</a>
+        <a href="gir-js-lecon04.html">Chapitre Suivant</a>
+    </div>
+    <div class="icon">
+        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+    </div>
+   <a href="https://wa.me/237699318917" target="_blank" class="whatsapp"><i class="fa-brands fa-square-whatsapp"></i>chat with me</a>
+    <footer>
+       <p>© Copyright DEC 2023. Design by <i>Giresse FOYET</i> | Cours du web</p>
+    </footer>
+</body>
+</html>
