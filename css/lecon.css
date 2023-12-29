@@ -90,6 +90,7 @@ span{
 strong{
     background-color: orange;
     font-style: italic;
+    padding: 5px;
 }
 .resultat-img{
     text-align: center;
@@ -127,6 +128,29 @@ strong{
     font-size: 15px;
     text-decoration: underline;
 }
-.exercice ul{
-    margin-left: 50px;  
+ul{
+    margin-left: 50px;
+    font-size:15px ; 
+}
+li{
+    margin-block: 5px;
+}
+
+
+/* css tableau */
+
+table{
+    min-width: 50%;
+    margin: 0 auto;
+    margin-block: 25px;
+    border-collapse: collapse
+}
+td, th{
+    padding: 15px;
+    text-align: left;
+}
+table .couleur{
+    background: rgba(201, 199, 199, 0.468);
+    border-top: 1px solid rgba(154, 154, 154, 0.778);
+    border-bottom: 1px solid rgba(154, 154, 154, 0.778);
 }
