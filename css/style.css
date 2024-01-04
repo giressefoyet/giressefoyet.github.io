@@ -293,22 +293,22 @@ a.whatsapp{
     display: flex;
     flex-direction: column;
     position: fixed;
-    right: 2%;
-    bottom:10%;
+    right: 15px;
+    bottom:10px;
     z-index: 9999;
     transition: .5s ease-out;
 }
 
 a.whatsapp i{
     text-decoration: underline;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     padding-block: 30px;
-    background: rgba(0, 132, 4, 0.119);
-    border: 1px solid rgba(0, 132, 4, 0.159);
+    /* background: rgba(0, 132, 4, 0.119); */
+    /* border: 1px solid rgba(0, 132, 4, 0.159); */
     font-size: 60px;
 }
 a.whatsapp i:hover{
-    border: 1px solid rgba(0, 132, 4, 0.589);
+    color: rgba(0, 132, 4, 0.99);
 }
 
 footer{
