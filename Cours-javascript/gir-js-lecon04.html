@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecon.css">
+    <script src="https://kit.fontawesome.com/75d37dea60.js" crossorigin="anonymous"></script>
+    <!--     lien des icones du site web -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Giresse FOYET | Cours</title>
+    <link rel="shortcut icon" href="../images/icon.png" type="image/x-icon">
+</head>
+<body class="js-icon">
+    <!-- Entête du cours HTML, CSS, JS, PHP, SQL, React -->
+    <header>
+        <div class="entete">
+            <nav>
+                <a href="../index.html" class="logo">GIGI-CODEX</a>
+                <a href="../Cours-html/gir-html.html" class="link">html5</a>
+                <a href="../Cours-css/gir-css.html" class="link">css3</a>
+                <a href="gir-javascript.html" class="link">Javascript</a>
+                <a href="../Cours-php/gir-php.html" class="link">Php</a>
+                <a href="../Cours-mysql/gir-mysql.html" class="link">Mysql</a>
+                <a href="../Cours-wordpress/gir-wordpress.html" class="link">wordpress</a>
+                <a href="../Cours-infographie/gir-infographie.html" class="link">infographie</a>
+                <a href="../Cours-bureautique/gir-bureautique.html" class="link">bureautique</a>
+                <a href="https://wa.me/237699318917" class="what" target="_blank">contact-me</a>
+            </nav>
+        </div>
+        <h1>JavaScript | Leçon 04 : Les boucles</h1>
+    </header>
+    <!-- fin du header -->
+    <div class="lesson">
+        <div class="contenu">
+            <div class="objetif">
+               <h5> Contenu :</h5><br>
+               <p>Cette leçon présente les structures de contrôle itératives. Les boucles permettent de répéter des portions de code en fonction de certains critères </p>
+               <div id="while"></div>  <!--le lien ramenant à while -->
+               <br><h5>Objectifs : </h5><br>
+               <p>Maîtriser les concepts de code itératif, d'expression booléennes et de test. Savoir écrire des codes simples utilisant les structures de contrôle while, do-while et for. Etre capable de choisir la bonne forme itérative en fonction de la situation. </p>
+            </div><hr>
+            <div class="bs">
+                <h3>La forme <strong>while</strong></h3>
+                <p>
+                    La forme <strong>while</strong> Dans de nombreuses situations, l'utilisateur d'une application web doit saisir des informations (nom, email, login, mot de passe, etc.) et
+                    l'application doit alors vérifier les informations fournies. Supposons par exemple qu'on demande à l'utilisateur de chosir un identifiant pour son inscription sur un site web avec la constrainte suivante : l'identifiant doit être une chaîne d'au moins cinq caractères. Si l'utilisateur propose un identifiant qui ne respecte pas la contrainte, le programme lui demande d'en proposer un autre. On peut résumer la situation de la façon suivante : 
+                </p>
+                <div class="tab-code">
+                    <ol>
+                        <li>Demander un identifiant à l'utilisateur</li>
+                        <li>Tant que l'identifiant ne respecte pas la contrainte :
+                            <ul>
+                                <li>Redemander un identifiant à l'utilisateur</li>
+                            </ul>
+                        </li>
+                        <li>Traîter l'identifiant de l'utilisateur</li>
+                    </ol>
+                </div>
+                <p>Pour écrire le code équivalent en JavaScript on utilise la forme while :</p> 
+                
+                <div class="tab-code">
+                    var identifiant = prompt(<span>"Votre identifiant ?",""</span>);<br>
+                    while ( identifiant.length < 5 ) {<br>
+                        identifiant = prompt(<span>"Identifiant non valide, recommencez :"</span>);<br>
+                    } <br>
+                    alert( <span>"Votre identifiant est " +</span> identifiant );<br>  
+               </div>
+                <p>
+                    Le mot-clef <strong> while</strong> définit le début de la boucle. Il est immédiatement suivi du test entre parenthèses et enfin du corps de la boucle. La toute première expression qui est évaluée dans une boucle while est le test. Si le test est vrai on exécute le corps de la boucle, puis on revient au test. Si le test est faux, on quitte la boucle et on passe aux instructions qui suivent la boucle. Le test est une expression à valeurs booléennes identique à celle utilisée dans une forme <strong>if</strong>. Cette expression peut être aussi complexe que l'on veut.
+                    <br> Par exemple, le code suivant teste si l'identifiant fourni par l'utilisateur est une chaîne d'au moins cinq et d'au plus dix caractères : 
+                </p>
+                <div class="tab-code">
+                    var identifiant = prompt(<span>"Votre identifiant ?",""</span>);<br>
+                    while ( identifiant.length < 5 || identifiant.length > 10 ) {<br>
+                        identifiant = prompt(<span>"Identifiant non valide, recommencez :"</span>);<br>
+                    } <br>
+                    alert( <span>"Votre identifiant est " +</span> identifiant );<br>  
+               </div>
+               <p>Remarquez que dans le code précédent, la variable identifiant est déclarée à l'extérieur de la boucle, sinon elle ne serait pas visible après la boucle dans l'expression paramètre de la fonction alert ! </p>
+               <div class="exercice">
+                    <h6>Exercice 1</h6>
+                    <p>Ecrivez un code qui demande à l'utilisateur un prix en euros (un nombre) et qui affiche le prix équivalent en francs (le taux de conversion est : 1 euro = 6,55957 francs). Tant que l'utilisateur ne fournit pas un nombre, le programme lui demande d'entrer une nouvelle valeur. Le résultat de la conversion doit être un nombre à au plus deux décimales (pensez à utiliser les fonctions <strong>isNaN,  Number et toFixed</strong>) </p>
+                </div> 
+                <div class="exercice">
+                    <h6>Exercice 2</h6>
+                    <p>Ecrivez un programme qui permet de jouer au jeu suivant : le programme tire un nombre au hasard compris entre 1 et 100, et le joueur doit le deviner. Le jeu se déroule de la façon suivante : </p>
+                    <ol>
+                        <li>le joueur propose un nombre</li>
+                        <li>si le nombre est : 
+                            <ul>
+                                <li>égal au nombre à deviner, le jeu se termine et le programme affiche un message adéquat </li>
+                                <li>plus petit que le nombre à deviner, le programme affiche "trop petit" dans une fenêtre et revient à l'étape 1 </li>
+                                <li>plus grand que le nombre à deviner, le programme affiche "trop grand" dans une fenêtre et revient à l'étape 1 </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    Produisez une deuxième version du programme qui affiche dans la fenêtre finale le nombre total d'essais du joueur. 
+                    <div class="tab-code">
+                        Il est possible d'utiliser pour ce jeu une stratégie très simple qui garantit qu'on puisse découvrir le nombre (compris entre 1 et 100) en au plus sept essais ! 
+                    </div>
+                </div> 
+                <div class="exercice">
+                    <h6>Exercice 3</h6>
+                    <p>Ecrivez un programme qui ouvre une porte après que l'utilisateur ait fourni un mot de passe. Le mot de passe est une chaîne de caractères donnée (et stockée dans une variable du programme). L'ouverture de la porte est simulée par l'affichage d'une fenêtre avec le message "la porte est ouverte". Tant que le mot de passe fourni est erroné, le programme le redemande et n'ouvre pas la porte. Lorsque le bon mot de passe est fourni, la porte s'ouvre. Produisez une deuxième version du programme qui maintenant n'autorise que trois essais pour donner le mot de passe correct.</p>
+                </div>
+                <div class="exercice">
+                    <h6>Exercice 4</h6>
+                    <p>Ecrivez un programme qui demande à l'utilisateur un nombre compris entre 2 et 10, et qui affiche dans une fenêtre la table de multiplication de ce nombre. Par exemple, si l'utilisateur saisit le nombre 7, le programme affiche une fenêtre du genre</p>
+                    <div class="resultat-img">
+                        <img src="../images/l04.png" alt="lecon 01">
+                    </div>
+                    <div id="do-while" ></div>
+                    <p>Si le nombre fourni par l'utilisateur n'est pas compris entre 2 et 10, le programme affiche un message d'erreur et redemande un nombre, et ce jusqu'à ce que le nombre fourni soit correct.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="bs">
+                <h3>La forme <strong>do-while</strong> </h3>
+                <p>La forme <strong>while</strong> est la structure de contrôle itérative fondamentale. Elle permet d'écrire un code itératif quelconque. Cependant, il existe deux autres structures de contrôle itératives mieux adaptées à certaines situations. 
+                <br> La première de ces structures est la forme <strong>do-while</strong>. Cette forme ressemble beaucoup à la forme <strong>while</strong> mais cette fois, <strong>le test se trouve en bas, après le corps de la boucle</strong>. 
+                <br> On peut reprendre un des exemples précédents et utiliser un <strong> do-while</strong> à la place d'un <strong>while</strong> : </p>
+                <div class="tab-code">
+                    var <span>identifiant</span>; <br>
+                    do { <br>
+                        identifiant = prompt( <span>"Entrez un identifiant :",""</span> ); <br>
+                    } while ( identifiant.length < 5 || identifiant.length > 10 ); <br><br>
+
+                    alert( <span>"Votre identifiant est "</span> + identifiant );
+                </div>
+                <p>A la différence avec un <strong>while</strong>, dans une forme <strong>do-while</strong>, le corps de la boucle est toujours exécuté au moins une fois au début.  </p>
+                
+                <div class="exercice">
+                    <h6>Exercice 5</h6>
+                   <div id="for"></div>  <!-- le lien du bloc for -->
+                    <p>Ecrivez un programme qui permet à l'utilisateur de saisir une suite de nombres quelconques, et qui affiche à la fin de la saisie le nombre total de nombres saisis, la somme de ces nombres et la moyenne de ces nombres. Pour terminer la saisie, l'utilisateur doit saisir la chaîne de caractères "stop". Si l'utilisateur fournit une chaîne de caractères qui n'est ni un nombre ni la chaîne "stop", le programme le signale et demande une nouvelle valeur. Utilisez la forme do-while pour implémenter la boucle.</p>
+                    
+                </div>  
+            </div>
+            <hr>
+            <div  class="bs">
+                <h3>La forme <strong>for</strong> </h3>
+                <p>Cette forme s'utilise principalement quand on dispose d'une variable d'itération. Par exemple, le code suivant affiche une série de fenêtres contenant les entiers successifs de 1 à 10 : </p>
+                <div class="tab-code">
+                    for ( var <span>i</span> = 1; <span>i</span> <= 10; <span>i</span>++ ) { <br>
+                        alert( <span>i</span> ); <br>
+                    }
+                </div>
+                <p>
+                    La boucle for est formée de quatre parties : 
+                    <ol>
+                        <li>la <strong>déclaration / initialisation</strong> de la variable d'itération : c'est l'instruction <strong>var i = 1</strong> de l'exemple précédent. Dans cette partie, on déclare et on initialise la variable qui va contrôler la boucle. Bien entendu, la valeur initiale de la variable d'itération peut être absolument quelconque </li>
+                        <li>le <strong> test de condition </strong>: c'est l'expression <strong>i <= 10</strong> de l'exemple précédent. Tant que le test est vrai, on itère (c'est à dire on effectue le corps de la boucle, entre autre on execute les instruction de la boucle), dès que le test devient faux, on quitte la boucle. Bien entendu, le test de la boucle peut être une expression à valeurs booléennes absolument quelconque </li>
+                        <li>le <strong>corps ou instructions de la boucle</strong> : c'est l'instruction <strong>alert( i )</strong> de l'exemple précédent. Le corps de la boucle peut être aussi long et complexe que l'on veut, et contenir par exemple d'autres structures de contrôle (comme des boucles) </li>
+                        <li>la mise à jour de la variable d'itération : c'est l'instruction i++ de l'exemple précédent. Cette instruction est exécutée à la suite des instructions contenues dans le corps de la boucle, et ce après chaque itération ! Bien entendu, l'instruction de mise à jour de la variable d'itération peut être absolument quelconque. L'expression i++ est équivalente à l'instruction i = i + 1. L'opérateur <strong>++</strong> s'appelle l'<strong>opérateur de post-incrémentation</strong></li>
+                    </ol>
+                    Remarquez que dans le code précédent, on a omis les parenthèses autour du corps de la boucle puisque celui-ci n'est constitué que d'une seule instruction. 
+                </p>
+                <div class="exercice">
+                    <h6>Exercice 6</h6>
+                    <p>Reprenez l'exercice 4, en utilisant cette fois une boucle for à la place de la boucle while. </p>
+                </div>  
+                <div class="exercice">
+                    <h6>Exercice 7</h6>
+                    <p>Ecrivez un programme qui demande à l'utilisateur un nombre, et qui affiche dans une fenêtre tous les diviseurs de ce nombre, y compris 1 et lui-même. Par exemple, si l'utilisateur fournit le nombre 30, le programme affiche la fenêtre suivante : </p>
+                    <div class="resultat-img">
+                        <img src="../images/l04-exo7.png" alt="lecon 01">
+                    </div>
+                    <p>Au début, le programme boucle tant que l'utilisateur n'a pas fourni une chaîne de caractères qui est un nombre strictement positif. Pour savoir si un nombre x est divisible par un nombre y, il faut vérifier que le reste de la division entière de x par y est égal à 0 à laide de l'opérateur %. Ainsi, si le test x % y == 0 est vrai, alors x est divisible par y. </p>
+                </div> 
+                <div class="exercice">
+                    <h6>Exercice 8</h6>
+                    <p>Un nombre entier supérieur à 1 est un nombre premier si et seulement si il n'est divisible que par 1 et par lui-même. En vous inspirant de l'exercice précédent, écrivez un code qui demande à l'utilisateur un nombre entier supérieur à 1, et qui dit dans une fenêtre si le nombre est premier ou non. Produisez ensuite une deuxième version du programme qui utilise une boucle while pour déterminer si le nombre est premier ou non. Dans cette deuxième version, la boucle se termine dès qu'on a déterminé que le nombre n'était pas premier. </p>
+                </div>  
+            </div><hr>
+        </div>
+        <div class="menu-js">  
+            <div class="menu-lesson">
+                <h4>Menu leçon 01</h4>
+                <a href="#while">Forme while</a><hr>
+                <a href="#do-while">Forme do-while</a><hr>
+                <a href="#for">Forme for</a><hr>
+            </div> 
+            <div class="menu-lesson">
+                <h4>Menu Cours JavaScript</h4>
+                <a  href="gir-js-lecon01.html">Leçon 01 : Introduction<hr></a>
+                <a  href="gir-js-lecon02.html">Leçon 02 : Les variables<hr></a>
+                <a  href="gir-js-lecon03.html">Leçon 03 : Formes conditionnelles<hr></a>
+                <a  href="gir-js-lecon04.html">Leçon 04 : Les boucles<hr></a>
+                <a  href="gir-js-lecon05.html">Leçon 05 : Les tableaux<hr></a>
+                <a  href="gir-js-lecon06.html">Leçon 06 : Les fonctions<hr></a>
+                <a  href="gir-js-lecon07.html">Leçon 07 : JavaScript et HTML<hr></a>
+                <a  href="gir-js-lecon08.html">Leçon 08 : Les formulaires<hr></a>
+                <a  href="gir-js-lecon09.html">Leçon 09 : Les images et les délais<hr></a>
+                <a  href="gir-js-lecon10.html">Leçon 10 : Introduction à JQuery<hr></a>
+                <a  href="gir-js-lecon11.html">Leçon 11 : AJAX par l'exemple<hr></a>
+            </div>
+        </div>
+    </div>
+    <div class="btn-navet">
+        <a href="gir-js-lecon03.html">Chapitre Précedent</a>
+        <a href="gir-js-lecon05.html">Chapitre Suivant</a>
+    </div>
+    <div class="icon">
+        <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+    </div>
+   <!-- <a href="https://wa.me/237699318917" target="_blank" class="whatsapp"><i class="fa-brands fa-square-whatsapp"></i>chat with me</a> -->
+    <footer>
+       <p>© Copyright DEC 2023. Design by <i>Giresse FOYET</i> | Cours du web</p>
+    </footer>
+</body>
+</html>
