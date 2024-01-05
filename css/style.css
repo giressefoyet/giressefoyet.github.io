@@ -101,7 +101,7 @@ section{
 section a{
     text-decoration: none;
     color: rgba(21, 20, 20, 0.966);
-    background: rgba(255, 255, 255, 0.847);
+    background: rgb(255, 255, 255);
     border-radius: 10px;
     min-height: 300px;
     padding: 20px;
