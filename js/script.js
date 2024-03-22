@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
    // condensée du code ci-dessus
   let liens = document.querySelectorAll('.lien-item');
   let affiches = document.querySelectorAll('.affiche');
+  let fleches = document.querySelectorAll('.fleche');
 
   for (let i = 0; i < liens.length; i++) {
       liens[i].addEventListener('click', function() {
@@ -178,17 +179,20 @@ document.addEventListener('DOMContentLoaded', function() {
               affiches[j].style.display = 'none';
           }
           affiches[i].style.display = 'block';
-
           for (let k = 0; k < liens.length; k++) {
               liens[k].classList.remove('actif');
+              fleches[k].classList.remove('actif1');
           }
           liens[i].classList.add('actif');
+          fleches[i].classList.add('actif1');
+         
       });
   }
   
   window.onload = function() {
     // Afficher le bloc "Compétences lors du chargement" au chargement de la page
     document.getElementById('affiche2').style.display = 'block';
+    document.querySelector('.fleche').classList.add('actif1');
     
 
      /* faire apparaître et disparaître les photos */
