@@ -546,14 +546,15 @@
                 </div>
             </div>
             <div class="bloc-contact form">
-                <form method="post">
+                <form method="post" id="form1">
+                    <div id="error-msg"></div>
                     <div class="fom-input">
                         <label for="nom">Nom <span>*</span></label>
-                        <input type="text" name="nom" id="nom" placeholder="Entrer votre nom" required>
+                        <input type="text" name="nom" id="nom" placeholder="Entrer votre nom" maxlength="150">
                     </div>
                     <div class="fom-input">
                         <label for="email">Email <span>*</span></label>
-                        <input type="text" name="email" id="email" placeholder="Entrer votre email" required>
+                        <input type="text" name="email" id="email" placeholder="Entrer votre email" maxlength="256">
                     </div>
                     <div class="fom-input">
                         <label for="message">Message <span>*</span></label>
