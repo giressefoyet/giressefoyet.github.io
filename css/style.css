@@ -848,12 +848,13 @@ nav{
 #error-msg{
   display: none;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   text-align: center;
   border-radius: 0.3rem;
   background: #08cc71;
   color: var(--bs-white);
 }
+
 
 form{
   display: flex;
