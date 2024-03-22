@@ -265,3 +265,37 @@ document.addEventListener("DOMContentLoaded", function(event){
     });
 });
 
+document.getElementById("form1").addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêcher le comportement par défaut du formulaire (rechargement de la page)
+
+    // Récupérer les valeurs des champs
+    var nom = document.getElementById("nom").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    var errorText=document.getElementById("error-msg");
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Exemple de validation
+    if (nom === '' || email === '' || message === '') {
+        errorText.style.display="block";
+        errorText.innerHTML="Veuillez remplir tous les champs!";
+        errorText.style.background="red";
+    }else{
+
+        if(!emailRegex.test(email)){
+            errorText.style.display="block";
+            errorText.innerHTML="Email non valide!";
+            errorText.style.background="red";
+        }else{
+            errorText.innerHTML="Message envoyer avec succès!";
+            errorText.style.background="#08cc71";
+            // Réinitialiser le formulaire après soumission (optionnel)
+            document.getElementById("form1").reset();
+        }
+    }
+  
+
+    // Vous pouvez également rediriger l'utilisateur vers une autre page après soumission si nécessaire
+    //window.location.href = "index.html";
+
+});
