@@ -657,7 +657,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0.5rem 0;
+  margin-top: 2rem;
 }
 #cv h2,
 #contact h2{
@@ -706,7 +706,7 @@ nav{
   display: flex;
   flex-direction: row;
   border: 2px solid rgba(3, 135, 243, 0.25);
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   padding: 1.2rem;
   color: var(--bs-gray);
 }
