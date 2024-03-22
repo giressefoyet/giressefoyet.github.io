@@ -231,6 +231,7 @@ nav{
   padding-top: 1rem;
   padding-bottom: 1rem;
   z-index: 1000; /* Assurez-vous que la navigation est au-dessus du contenu */
+  transition: all 0.2s ease-out;
 }
 
 .nav-elt{
