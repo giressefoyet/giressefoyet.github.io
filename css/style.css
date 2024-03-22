@@ -928,7 +928,9 @@ form{
   cursor: pointer;
   border-radius: 100%;
   border:0.5rem solid var(--bs-blue);
-  box-shadow: rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.39);
+  -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.39);
+  -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.39);
   background: var(--bs-blue);
   text-align: center;
 }
