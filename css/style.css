@@ -664,6 +664,29 @@ nav{
   color: var(--bs-blue);
   text-align: left;
 }
+#cv .lien{
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+  float: right;
+}
+#cv .btn-cv{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#cv .fleche{
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-color:var(--bs-white) transparent transparent transparent;
+  border-style: solid;
+}
+#cv .fleche.actif1{
+  border-color:var(--bs-blue) transparent transparent transparent;
+}
 #cv a{
   text-align:right;
   text-decoration: none;
@@ -673,6 +696,7 @@ nav{
   transition: .5s ease-out;
   cursor: pointer;
 }
+
 #cv a.actif,
 #cv a:hover{
   background: var(--bs-blue);
