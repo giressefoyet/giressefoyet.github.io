@@ -56,13 +56,17 @@
 
   window.addEventListener('scroll', function() {
     const nav = document.getElementById('nav-bar');
+    const anim_pp= this.document.querySelector(".anim-pp");
     const navHeight = nav.offsetHeight;
     const scrollPosition = window.scrollY;
 
     if (scrollPosition > navHeight) {
         nav.classList.add('fixed-nav');
+        anim_pp.classList.add('fixed-pp');
+
     } else {
         nav.classList.remove('fixed-nav');
+        anim_pp.classList.remove('fixed-pp');
     }
 });
 
@@ -78,7 +82,7 @@ function myFunction() {
         document.getElementById("menu-bar").innerHTML="x"
     } else {
         x.className = "menu";
-        document.getElementById("menu-bar").innerHTML="MENU"
+        document.getElementById("menu-bar").innerHTML="<i class='fa-solid fa-bars'></i>"
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
@@ -276,18 +280,25 @@ document.getElementById("form1").addEventListener("submit", function(event) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Exemple de validation
-    if (nom === '' || email === '' || message === '') {
+    if (!nom.trim() || !email.trim() || !message.trim()) {
         errorText.style.display="block";
         errorText.innerHTML="Veuillez remplir tous les champs!";
         errorText.style.background="red";
+        document.getElementById("nom").style.border="0.12rem solid red";
+        document.getElementById("email").style.border="0.12rem solid red";
+        document.getElementById("message").style.border="0.12rem solid red";
     }else{
 
         if(!emailRegex.test(email)){
             errorText.style.display="block";
             errorText.innerHTML="Email non valide!";
             errorText.style.background="red";
+            document.getElementById("email").style.border="0.12rem solid red";
+            document.getElementById("nom").style.border="0.12rem solid rgba(4, 163, 255, 0.25)";
+            document.getElementById("message").style.border="0.12rem solid rgba(4, 163, 255, 0.25)";
+
         }else{
-            errorText.innerHTML="Message envoyer avec succès!";
+            document.getElementById("form1").submit();
             errorText.style.background="#08cc71";
             // Réinitialiser le formulaire après soumission (optionnel)
             document.getElementById("form1").reset();
