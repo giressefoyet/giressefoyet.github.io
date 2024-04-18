@@ -219,12 +219,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let btncloseMain = document.getElementById("btn-closeMain");
     let maintenance = document.getElementById("maintenance");
     let btnDetails = document.getElementById("btnDetail");
-
+    const closeMain= document.getElementById("close-main");
+    
     btncloseMain.onclick = () =>{
         maintenance.style.display="none";
     }
     btnDetails.onclick = () =>{
         maintenance.style.display="block";
+        closeMain.addEventListener('click', ()=>{
+            maintenance.classList.add('animate');
+          });
+        maintenance.classList.remove('animate');
     }
 
     
@@ -233,11 +238,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let reseau = document.getElementById("reseau");
     let btnRs = document.getElementById("btnRs");
 
+    const closeRs= document.getElementById("close-rs");
+   
+
     btncloseReseau.onclick = () =>{
         reseau.style.display="none";
+        
     }
     btnRs.onclick = () =>{
         reseau.style.display="block";
+        closeRs.addEventListener('click', ()=>{
+          reseau.classList.add('animate');
+        });
+        reseau.classList.remove('animate');
     }
    
 
@@ -273,40 +286,53 @@ document.getElementById("form1").addEventListener("submit", function(event) {
     event.preventDefault(); // Empêcher le comportement par défaut du formulaire (rechargement de la page)
 
     // Récupérer les valeurs des champs
-    var nom = document.getElementById("nom").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-    var errorText=document.getElementById("error-msg");
+    var nom = document.getElementById("nom").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var message = document.getElementById("message").value.trim();
+    var errorText = document.getElementById("error-msg");
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Réinitialiser les styles des champs
+    var fields = ["nom", "email", "message"];
+    fields.forEach(function(field) {
+        document.getElementById(field).style.border = "0.12rem solid rgba(4, 163, 255, 0.25)";
+    });
+
     // Exemple de validation
-    if (!nom.trim() || !email.trim() || !message.trim()) {
-        errorText.style.display="block";
-        errorText.innerHTML="Veuillez remplir tous les champs!";
-        errorText.style.background="red";
-        document.getElementById("nom").style.border="0.12rem solid red";
-        document.getElementById("email").style.border="0.12rem solid red";
-        document.getElementById("message").style.border="0.12rem solid red";
-    }else{
-
-        if(!emailRegex.test(email)){
-            errorText.style.display="block";
-            errorText.innerHTML="Email non valide!";
-            errorText.style.background="red";
-            document.getElementById("email").style.border="0.12rem solid red";
-            document.getElementById("nom").style.border="0.12rem solid rgba(4, 163, 255, 0.25)";
-            document.getElementById("message").style.border="0.12rem solid rgba(4, 163, 255, 0.25)";
-
-        }else{
-            document.getElementById("form1").submit();
-            errorText.style.background="#08cc71";
-            // Réinitialiser le formulaire après soumission (optionnel)
-            document.getElementById("form1").reset();
-        }
+    if (!nom || !email || !message) {
+        displayError("Veuillez remplir tous les champs!");
+    } else if (!emailRegex.test(email)) {
+        displayError("Email non valide!");
+        document.getElementById("email").style.border = "0.12rem solid red";
+    } else {
+        var formData = new FormData(this);
+        sendFormData(formData);
     }
-  
 
-    // Vous pouvez également rediriger l'utilisateur vers une autre page après soumission si nécessaire
-    //window.location.href = "index.html";
+    function displayError(message) {
+        errorText.style.display = "block";
+        errorText.innerHTML = message;
+        errorText.style.background = "red";
+        fields.forEach(function(field) {
+            document.getElementById(field).style.border = "0.12rem solid red";
+        });
+    }
 
-});
+    function sendFormData(formData) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "php/contact-form.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("response").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send(formData);
+        errorText.innerHTML = "Votre message a été envoyé avec succès.";
+        errorText.style.background = "#08cc71";
+        document.getElementById("form1").reset();
+    }
+})
+
+
+
+
