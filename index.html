@@ -1,626 +1,1593 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/75d37dea60.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <!--     lien des icones du site web -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Titre du portfolio -->
-    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
-    <title>Giresse FOYET | Portfolio</title>
-    
+    <title>FOYET FEANCK GIRESSE | IT, DV WEB & INFOGRAPHIE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #06b6d4;
+            --accent-light: #67e8f9;
+            --accent-dark: #0891b2;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --surface: #1e293b;
+            --surface-light: #334155;
+            --gradient-1: #06b6d4;
+            --gradient-2: #8b5cf6;
+            --gradient-3: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            padding: 0.8rem 5%;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--gradient-2));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 5% 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--surface-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-light);
+            border-color: var(--accent);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-main {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-main::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .about-image-main i {
+            font-size: 8rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--primary);
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--surface-light);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .about-image-badge .years {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-image-badge .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .about-feature i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .about-feature span {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border: 1px solid var(--surface-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--gradient-2));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(6, 182, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--primary);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--surface-light);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border-color: var(--accent);
+        }
+
+        .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--secondary), var(--surface));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--primary), transparent);
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-content {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .project-meta i {
+            color: var(--accent);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            background: var(--secondary);
+            border: 1px solid var(--surface-light);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent);
+        }
+
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .skill-level {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: var(--surface-light);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--gradient-2));
+            transition: width 1.5s ease;
+        }
+
+        /* Clients Section */
+        .clients {
+            background: var(--secondary);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .client-card {
+            background: var(--primary);
+            border: 1px solid var(--surface-light);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .client-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(6, 182, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .client-icon i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .client-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .client-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 12px;
+            border: 1px solid var(--surface-light);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(6, 182, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-item div {
+            font-size: 0.9rem;
+        }
+
+        .contact-item .label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .contact-form {
+            background: var(--secondary);
+            border: 1px solid var(--surface-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: var(--primary);
+            border: 1px solid var(--surface-light);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            border-top: 1px solid var(--surface-light);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--secondary);
+            border: 1px solid var(--surface-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image-badge {
+                bottom: -10px;
+                right: -10px;
+                padding: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--surface-light);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
 </head>
-<body id="page-top">
-    <header>
-        <div class="nav-bar" id="nav-bar">
-            <div class="mobile">
-                <div class="anim-pp"><a href="https://giressefoyet.maindigital237.com/" class="PP"><img id="profil-img-nav" src="https://i.pinimg.com/originals/c2/2a/04/c22a049a847853829e8cb8ebd31b4df6.png" alt="profil"> Giresse FOYET</a></div>
-                <a href="https://giressefoyet.maindigital237.com/" id="nav-home"><i class="fa-solid fa-house"></i></a>
-                <a href="javascript:void(0);" id="menu-bar" onclick="myFunction()"><i class="fa-solid fa-bars"></i></a>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="logo">FFG.Dev</div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-circle-check"></i>
+                Disponible pour des projets
             </div>
-            <nav id="menu" class="menu">
-                <a class="nav-elt elt elt-mobile" href="https://giressefoyet.maindigital237.com/" id="elt"><i class="fa-solid fa-house"></i></a>
-                <a class="nav-elt elt" href="#moi" id="elt">Qui suis-je?</a>
-                <a class="nav-elt elt" href="#cv" id="elt">CV</a>
-                <a class="nav-elt elt" href="#projet" id="elt">Projets</a>
-                <a class="nav-elt elt" href="#contact" id="elt">Contact</a>
-            </nav>
-        </div>
-        <div id="scrollContainer">
-            <div class="technologies">
-              <ul class="text-uppercase" id="wordList">
-                <li><i class="fa-brands fa-html5"></i>HTML</li>
-                <li><i class="fa-brands fa-css3-alt"></i>CSS</li>
-                <li><i class="fa-brands fa-js"></i>JAVASCRIPT</li>
-                <li><i class="fa-brands fa-react"></i>ReactJs</li>
-                <li><i class="fa-brands fa-php"></i>PHP</li>
-                <li><i class="fa-solid fa-database"></i>MYSQL</li>
-                <li>JQUERRY</li>
-                <li><i class="fa-brands fa-wordpress"></i>WORDPRESS</li>
-                <li><i class="fa-brands fa-wix"></i> WIX</li>
-                <li><i class="fa-brands fa-figma"></i>FIGMA</li>
-                <li>PHOTOSHOP</li>
-                <li>ILLUSTRATOR</li>
-                <li>PREMIER PRO</li>
-                <li><i class="fa-solid fa-network-wired"></i>Reseau</li>
-                <li><i class="fa-brands fa-windows"></i>Maintenance</li>
-              </ul>
-            </div>
-          </div>
-          
-    </header>
-
-    <section id="moi">
-        <div class="gauche">
-            <div class="presentation">
-                <div class="ctn_p">
-                    <div class="nom">
-                        <img src="https://i.pinimg.com/originals/c2/2a/04/c22a049a847853829e8cb8ebd31b4df6.png" alt="">
-                        <h6>Salut, Moi c'est</h6>
-                        <h1 class="text-uppercase">Giresse FOYET</h1><hr>
-                        <h5>Technicien Informatique - Developpeur Web - Infographe</h5>
-                        
-                        <p>
-                            <i class="num-1"><img src="assets/01.png" alt=""></i>
-                            <em class="h1">Qui - suis je?</em>  <br> <br>
-                            Vous trouverez ici plus d'informations sur moi,
-                            ce que je fais et mes compétences actuelles 
-                            principalement en termes de <strong>Design</strong> , <strong>Maintenance Informatique</strong> , <strong>Programmation</strong> et de 
-                            <strong>Technologie</strong>. <br><br>
-                        
-                            Je suis un <strong>Technicien Informatique</strong> spécialisé en <strong>Developpeur Web</strong>, <strong>Infographe</strong> et
-                            <strong>Maintenance Informatique</strong>. <br><br>
-
-                          Je suis ouvert aux opportunités d'emploi où je peux 
-                            contribuer, apprendre et évoluer. Si vous avez une 
-                            bonne opportunité correspondant à mes compétences et 
-                            à mon expérience, n'hésitez pas à me contacter. <br><br>
-
-                            Découvrez certains de mes travaux dans la section 
-                            <strong><a href="#projet">projets</a></strong>. <br>
-                        </p>
-                        <p>
-                            <i class="num-2"><img src="assets/02.png" alt=""></i>
-                            <em class="h5">developpeur web</em> <br> <br>
-                            Je vous aide à créer et gérer vos 
-                            sites Web et/ou des applications Web qui mènent au 
-                            succès du produit global. <br> <br>
-
-                            <em class="h5">Infographe</em><br> <br>
-                            Je conçois pour vos marques ou services des designs de qualités (affiches, 
-                            catalogues, bannières, des logos, des flyers, calendriers,
-                            roll-up, etc.) qui captivent et communiquent efficacement l'information.  <br> <br>
-
-                            <em class="h5">maintenance informatique</em><br> <br>
-                            Grâce à mes nombreuses expériences et mes récherches personnelles, je mets à votre
-                            disposition mon expertise en maintenance des ordinateurs (software ou hardware), l'installation réseau et caméras de
-                            vidéo surveillance
-                            
-                        </p>
-                    </div>
-                    <div class="btn-contact">
-                        <a href="#contact">Contactez-moi</a>
-                        <a href="assets/cv_nov_2023.pdf" target="_blank">Télecharger Mon cv <i class="fa-solid fa-download"></i></a>
-                    </div>
-                    <div class="social">
-                        <a class="btn  mx-1 fb" href="https://facebook.com/giressefoyet" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn  mx-1 ds" href="https://discord.com/channels/@me/1183193934332186704" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                        <a class="btn  mx-1 ln" href="https://www.linkedin.com/in/giressefoyet/" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn  mx-1 git" href="https://github.com/giressefoyet" target="_blank"><i class="fa-brands fa-github"></i></i></a>
-                        <a class="btn  mx-1 pint" href="https://www.pinterest.com/Giresse237/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
-                    </div>                      
+            <h1>
+                FOYET FEANCK<br>
+                <span class="highlight">GIRESSE</span>
+            </h1>
+            <p class="hero-subtitle">
+                Expert en IT, Développement Web & Infographie. Spécialisé dans le déploiement de réseaux VoIP, vidéosurveillance et solutions informatiques sur mesure au Cameroun.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Régions couvertes</div>
                 </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projets réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfaction client</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#projets" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Voir mes projets
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Me contacter
+                </a>
             </div>
         </div>
-        
-    </section>
-    
-    <section id="cv">
-        <div class="resume">
-            <div id="controls">
-                <h2 class="text-uppercase">Mon parcours</h2>
-                <div class="lien">
-                    <!-- <a id="ctn-1" class="lien-item">Formation</a>  -->
-                    <div class="btn-cv">
-                        <a id="ctn-1" class="lien-item actif">Compétences</a>
-                        <span class="fleche actif"></span>
-                    </div>
-                    <div class="btn-cv">
-                        <a id="ctn-1" class="lien-item">Expériences </a>
-                        <span class="fleche"></span>
-                    </div> 
-                </div>
-            </div>
-            <div id="content-cv">
-                 <!--
-                <div id="affiche1" class="affiche">
-                    <h4 class="titre">FORMATION</h4>
-                    <div class="content" id="ctn-cv">
-                        <span> <strong>Diplôme d’Études Professionnelles Approfondies (BTS)</strong></span><br>
-                        <span><strong>Spécialité</strong> : Génie Informatique</span>
-                        <p>2015 - 2017</p>
-                        <p>Université Privée ISTAMA, Bépanda -Bonamoussadi Cameroun</p>
-                    </div>
-                </div>
-                -->
-                <div id="affiche2" class="affiche">
-                    <h4 class="titre">Compétences</h4>
-                    <div class="content" id="ctn-cv">
-                        <ul class="text-uppercase" id="wordList2">
-                            <li><img src="assets/html.png" alt=""><p>HTML</p></li>
-                            <li><img src="assets/css.png" alt=""><p>CSS</p></li>
-                            <li><img src="assets/js.png" alt=""><p>JAVASCRIPT</p></li>
-                            <li> <img src="assets/React.png" alt=""> <p>ReactJs</p> </li>
-                            <li> <img src="assets/php.png" alt=""> <p>PHP</p></li>
-                            <li><img src="assets/sql.png" alt=""><p>MYSQL</p></li>
-                            <li> <img src="assets/jquery.png" alt=""><p>JQUERRY</p></li>
-                            <li> <img src="assets/wp.png" alt=""> <p>WORDPRESS</p></li>
-                            <li> <img src="assets/wix.png" alt=""><p>WIX</p></li>
-                            <li><img src="assets/figma.png" alt=""><p>FIGMA</p></li>
-                            <li> <img src="assets/ps.png" alt=""> <p>PHOTOSHOP</p></li>
-                            <li> <img src="assets/ai.png" alt=""> <p>ILLUSTRATOR</p></li>
-                            <li> <img src="assets/premierpro.png" alt=""> <p>premier Pro</p></li>
-                            <li><img src="assets/reseau.png" alt=""><p>Reseau</p></li>
-                            <li><img src="assets/maintenance.png" alt=""> <p>Maintenance</p></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="affiche3" class="affiche">
-                    <h4 class="titre">Expérience Professionnel</h4>
-                    <div class="content" id="ctn-cv">
-                        <table>
-                           <div class="tab-bloc">
-                                <tr class="first-line">
-                                    <td> <strong>Enseignant en informatique </strong></td>
-                                    <td> <strong>Octobre 2023 à nos Jours </strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><i>Société: INSTITUT PROFESSIONNEL DES MÉTIERS DE L’EMPLOI (IPME), Makepe Douala</i></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2">
-                                        Enseignant en développement Front-end spécialité Webmaster <br>
-                                        Enseignant en Maintenance Informatique <br>
-                                        Enseignant Réseau informatique (Cours + Travaux Pratique) <br>
-                                        Enseignant en Secrétariat Bureautique <br> <br> <br>
-                                    </td>
-                                </tr>
-                                
-                           </div>
-                           <br><br>
-                           <div class="tab-bloc">
-                                <tr class="first-line">
-                                    <td> <strong>Consultant en services informatiques </strong></td>
-                                    <td> <strong>Juillet 2017 à Novembre 2023 </strong></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2"><i>Société MAINTENANCE INFORMATIQUE ET DIGITAL, Bonabérie Douala-Cameroun</i></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2">
-                                        Effectuer les opérations de sauvegarde et de restauration de données lors de problèmes majeurs <br>
-                                        Installer et réparer diverses pièces de matériel informatique (composantes, périphériques, etc.) <br>
-                                        Installer des Caméras de surveillances et maintenance réseau <br>
-                                        Proposition des solutions techniques et organisationnelles et leurs mises en place. <br>
-                                        Création site web et application à l’aide des technologies : HTML, CSS, JavaScript, React, CMS WordPress, Wix <br>
-                                        Conception des visuels de communication, Charte graphique, conseil en informatique, etc. <br> <br> <br>
-                                    </td>
-                                </tr>
-                           </div>
-                           <div class="tab-bloc">
-                                <tr class="first-line">
-                                    <td> <strong>Graphiste (Infographe) </strong></td>
-                                    <td> <strong>Mars 2023 à Février 2024 </strong></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2"><i>Société NKG MANAGEMENT SPORT France, Contrat : Freelance (à distance) + CDD</i></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2">
-                                        Réalisation et création des différents supports de communication (flyers, plaquettes commerciales, dépliants,
-                                        affiches publicitaires, etc.) pour les joueurs et le Club de Football ACADJO, et publicité NKG.  <br>
-                                        Création des chartes graphiques et concept des clients de la société <br>
-                                        Création des supports interactifs (web, multimédia). <br> <br> <br>
-                                    </td>
-                                </tr>
-                            
-                            </div>
-                            <div class="tab-bloc">
-                                <tr class="first-line">
-                                    <td> <strong>Moniteur technicien en l’informatique </strong></td>
-                                    <td> <strong>Février 2022 à Novembre 2022 </strong></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2"><i>Société DIGITAL LTD, Bonandjo. Type Contrat : CDD</i></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2">
-                                        Installer les logiciels de systèmes d'exploitation et les applications pour différents utilisateurs <br>
-                                        Installer des matériels réseaux Informatique (Switch, Rack, Baie de brassages, câblages, prises rj45 et rj11,
-                                        modem, Patch panel, etc.) <br>
-                                        Fournir des services de résolution de problèmes aux utilisateurs <br>
-                                        Effectuer les opérations de sauvegarde et de restauration de données lors de problèmes majeurs <br>
-                                        Installer et réparer diverses pièces de matériel informatique (composantes, périphériques, etc.) <br>
-                                        Câblages, installations des équipements, configuration logiciels… cas du site de l'immeuble CONGELCAM AKWA
-                                        derrière Direction Général d'Orange Cameroun. <br> <br> <br>
-                                    </td>
-                                </tr>
-                            
-                            </div>
-                            <div class="tab-bloc">
-                                <tr class="first-line">
-                                    <td> <strong>Développeur Web et graphiste </strong></td>
-                                    <td> <strong>Février 2017 à Janvier 2022 </strong></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2"><i>Société MEDIA SYSTEM CONSULTING. Type Contrat : CDI</i></td>
-                                </tr>
-                                <tr>
-                                    <td  colspan="2">
-                                        Effectuer l’installation des applications de gestion <br>
-                                        Effectuer l’installation et maintenance réseaux, maintenance des ordinateurs. <br>
-                                        Formateur en Développement web : HTML & CSS, JavaScript, WordPress ; <br>
-                                        Formateur en secrétariat bureautique, et Infographie ; <br>
-                                        Maintenance des ordinateurs ; <br>
-                                        Maintenance, installation et sécurité réseaux informatiques ; <br>
-                                        Développement des sites web dynamiques avec le CMS WordPress ; <br>
-                                        Développement des sites web dynamiques avec HTML, CSS, JavaScript, React, PHP ; <br>
-                                        Conception de base de données MySQL. <br>
-                                        Réalisation et création des différents supports de communication (flyers, plaquettes commerciales, dépliants,
-                                        affiches publicitaires, etc.)
-                                    </td>
-                                </tr>
-                            
-                            </div>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-dn">
-                <a href="assets/cv_nov_2023.pdf" target="_blank">Télecharger CV <i class="fa-solid fa-download"></i></a>
-            </div>
-            
-        </div>  
     </section>
 
-    <section id="projet">
-        <div class="infos-projets">
-            <h2>Quelques Réalisations</h2>
-            <p>Vous trouverez ici quelques-uns des projets personnels et clients que j'ai créés, chaque projet contenant sa propre étude de cas. </p>
+    <!-- About Section -->
+    <section class="about" id="apropos">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">À Propos</span>
+            <h2 class="section-title">Qui suis-je ?</h2>
+            <p class="section-desc">Un professionnel passionné par les technologies de l'information et la communication.</p>
         </div>
-
-        <!-- partie acceuil réalisations -->
-        <div class="realisations">
-            <div class="projet-bloc">
-                <div class="image">
-                    <img id="img-voir" src="https://i.pinimg.com/originals/da/ca/40/daca4067006ec5674aa2ed6ba5b6a270.jpg" alt="image infographie">
+        <div class="about-grid">
+            <div class="about-image animate-on-scroll">
+                <div class="about-image-main">
+                    <i class="fas fa-user-astronaut"></i>
                 </div>
-                <div class="projet-item">
-                    <h5>Infographie</h5><hr>
-                    <p>
-                        Mon expertise en infographie, m'a permis de développer des designs impactant et interactives pour de multiples entreprises et personnes. Des designs de qualité qui captivent et communiquent efficacement l'information.
-                    </p>
-                    <button id="btn-voir">plus Détails</button>
+                <div class="about-image-badge">
+                    <div class="years">5+</div>
+                    <div class="label">Années d'expérience</div>
                 </div>
             </div>
-            <div class="projet-bloc">
-                <div class="image">
-                    <img id="img-voir" src="https://i.pinimg.com/originals/34/e0/07/34e00785e71776482b4b5a4cb6344d92.jpg" alt="image dev web">
-                </div>
-                <div class="projet-item">
-                    <h5>Developpement web</h5><hr>
-                    <p>
-                        Grâce aux différentes connaissances acquis dans le domaine de développement web, j'ai pu réaliser des interfaces utilisateurs intuitives (sites web). Voici quelques de mes 
-                    réalisations:</p>
-                    <div class="lien-web">
-                        <a class="projet-web-lien" href="https://sareptabtp.com" target="_blank">www.sareptabtp.com</a>
-                        <a class="projet-web-lien" href="https://www.fetraining-cm.com" target="_blank">www.fetraining-cm.com</a>
-                        <a class="projet-web-lien" href="https://www.africanchallenges.com" target="_blank">www.africanchallenges.com</a>
-                        <a class="projet-web-lien" href="https://www.multihexacasa.ma" target="_blank">www.multihexacasa.ma</a>
-                        <a class="projet-web-lien" href="https://www.gesexpertise.com" target="_blank">www.gesexpertise.com</a>
-                        <a class="projet-web-lien" href="https://www.giressefoyet.github.io/portfolio" >portfolio</a>
+            <div class="about-content animate-on-scroll">
+                <h3>Technicien IT & Développeur Web passionné</h3>
+                <p>
+                    Je suis FOYET FEANCK GIRESSE, technicien spécialisé dans l'installation et la maintenance des réseaux informatiques, 
+                    la téléphonie VoIP, la vidéosurveillance et le développement web. Basé au Cameroun, j'interviens sur l'ensemble du territoire 
+                    pour déployer des solutions technologiques fiables et adaptées aux besoins de mes clients.
+                </p>
+                <p>
+                    Mon expertise couvre le déploiement de réseaux locaux, l'installation de systèmes de téléphonie IP et analogique, 
+                    la mise en place de systèmes de vidéosurveillance (analogique et IP), ainsi que la maintenance informatique. 
+                    Je combine ces compétences techniques avec ma passion pour le design et l'infographie.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Réseaux VoIP & LAN</span>
                     </div>
-                    
-                    <!-- <button id="btn-voir">Voir</button> -->
-                </div>
-            </div>
-
-            <div class="projet-bloc maintenace">
-                <div class="image">
-                    <img id="img-main" src="https://i.pinimg.com/originals/e8/0a/0c/e80a0c459de07280c9fbe93005831aa8.jpg" alt="image maintenance">
-                </div>
-                <div class="projet-item">
-                    <h5>Maintenance des ordinateurs</h5><hr>
-                    <p>Dans cee projet vous verrez plusieurs cas de problèmes de dépannages d'ordinateurs et des parcs informatiques auxquels j'ai fait face. <br>
-                    1. Mise à niveau du parc informatique : Cas de l'entreprise Fetraining Center <br>
-                    2. Maintenance préventive - Ecole De La Salle Akwa...
-                    </p>
-                    <button id="btnDetail">plus Détails</button>
-                </div>
-            </div>
-            <div class="projet-bloc">
-                <div class="image">
-                    <img id="img-Rs" src="https://i.pinimg.com/originals/30/9d/e5/309de5b04bbc46c31c67268d26b6e958.jpg" alt="image reseau">
-                </div>
-                <div class="projet-item">
-                    <h5>Installations et configuration réseau</h5>
-                    <p>Le projet consiste à réaliser une installation d'un réseau informatique des clients, comprenant la conception,
-                        l'installation et la configuration de l'infrastructure réseau. Cela inclut la mise en place...</p>
-                    <button id="btnRs">Plus Details</button>
-                </div>
-            </div>
-            <div class="projet-bloc">
-                <div class="image">
-                    <img id="img-voir" src="https://i.pinimg.com/originals/aa/7e/8e/aa7e8e4e08cd4722adab5fcf9dae6747.jpg" alt="image figma">
-                </div>
-                <div class="projet-item">
-                    <h5>Design sites web avec figma</h5><hr>
-                    <p>Figma, une puissante plateforme de conception d'interfaces utilisateur. Avec Figma, j'ai pu concrétiser mes idées et donner vie à des projets passionnants, du design d'interface utilisateur à la création de maquettes interactives. Vous verrez par exemple cette magnifique interface portfolio sur lequel vous pouvez interagir</p>
-                    <!-- <button id="btn-voir">plus Détails</button> -->
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Vidéosurveillance IP/Analogique</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Développement Web</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Infographie & Design</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Maintenance Informatique</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Installation Internet (Starlink)</span>
+                    </div>
                 </div>
             </div>
         </div>
-
     </section>
-      <!-- Partie click affichage slide -->
-        
-      <div id="galeries">
-        <span id="btn-close"><i class="fa-solid fa-circle-xmark"></i></span>
-        <div class="portfolio"> 
-            <button class="prev" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i></button>
-            <div class="slideshow">
-                <div class="slide active">
-                    <img src="https://i.pinimg.com/originals/a3/1b/e4/a31be4eb3f679602f21a9e29a86a6677.jpg" alt="flyer0">
-                    <div class="caption">Réalisation Flyer 1</div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Services</span>
+            <h2 class="section-title">Ce que je propose</h2>
+            <p class="section-desc">Des solutions technologiques complètes pour votre entreprise ou votre résidence.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-network-wired"></i>
                 </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/19/eb/29/19eb2990beaf28aabf63ba807172ff0a.jpg" alt="Réalisation 2">
-                    <div class="caption">Réalisation Flyer 2</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/736x/41/9a/b8/419ab86658fd295f4c9233145be2c46b.jpg" alt="Réalisation 3">
-                    <div class="caption">Réalisation Flyer 3</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/1e/79/81/1e79810f639bc3425407e22f33a776e5.jpg" alt="Réalisation 4">
-                    <div class="caption">Réalisation Papier entête + carte visite</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/90/03/fd/9003fd3bdce29b682aa5fd9080cc832b.jpg" alt="Réalisation 4">
-                    <div class="caption">Réalisation Papier entête + carte visite</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/80/be/22/80be2233954cb94bdf385b4c3c86776f.jpg" alt="Réalisation 5">
-                    <div class="caption">Réalisation plaquette 1</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/736x/f2/74/8a/f2748a8ae300781958a5d8282a776b3d.jpg" alt="Réalisation 5">
-                    <div class="caption">Réalisation plaquette 2</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/bb/80/38/bb8038683db729f7e8fc815e49c899d4.jpg" alt="Réalisation 5">
-                    <div class="caption">Réalisation plaquette 3</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/ab/97/bb/ab97bb48d67e9b71cc28a0542a4f371e.jpg" alt="Réalisation 5">
-                    <div class="caption">Réalisation plaquette 4</div>
-                </div>
-                <div class="slide">
-                    <img src="https://i.pinimg.com/originals/06/23/8c/06238c4313dd2ef6262f6e862f9dfdc5.jpg" alt="Réalisation 5">
-                    <div class="caption">Réalisation plaquette 5</div>
-                </div>
-                
+                <h3>Réseaux & Infrastructure</h3>
+                <p>Déploiement de réseaux locaux (LAN), configuration de routeurs, switches et équipements réseau. Installation de solutions Internet haut débit incluant Starlink.</p>
             </div>
-           
-            <button class="next" onclick="nextSlide()"><i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-    </div>
-    <div id="maintenance">
-        <div class="maintenance-content">
-            <button id="close-main"><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="main-item">
-                <h4>Maintenance Des ordinateurs</h4> <hr>
-                    <h5>Mise à niveau du Parc Informatique - entreprise Fetraining Center</h5>
-                    <h6>Description:</h6>
-                    <p>Le projet consistait à mettre à jours l'ensembles des ordinateurs, l'instalations des
-                        nouveaux composants matériels (ordinateurs et périphériques) et la mise à jours des logiciels
-                        et la configuration des systèmes d'exploitation pour améliorer les perfomances de sécurités.</p>
-                         <br>
-                    <h6>Résultat: </h6>
-                    <p> L'entreprise bénéficie des machines plus rapides et plus fiables, ainsi qu'une réduction des problèmes liés à
-                        aux version de logiciels obselètes.</p>
-                    <br>
-                    
-                    <h5>Déploiement des solutions de sécurité - cas du cabinet Maître Gilbert KAMGANG (Bonamoussadi)</h5>
-                    <h6>Description:</h6>
-                    <p>Mise à jours des logiciels anti-virus ainsi que les systèmes d'exploitations,
-                        sauvegardes automatiques pour protéger les données sensibles.</p>    
-                    <br>
-                    <h6>Résultat: </h6>
-                    <p>Le cabinet bénéficie d'une sécurité des informations de ses clients ce qui lui permet de maintenir 
-                        sa reputation d'intégrité et de professionnalisme dans son secteur d'activité.</p>
-                    <br>
-                  
-                    <h5>Maintenance Préventive - Personnes Autres</h5>
-                    <h6>Description:</h6>
-                    <strong>Panne Matérielle</strong> <br>
-                    <p>
-                                Il s'agit de faire face à plusieurs cas de problèmes des ordinateurs à savoir: <br>
-                                
-                                <li>Défaillance du disque dur : peut entraîner une perte de données ou un dysfonctionnement du système d'exploitation.</li>
-                                <li>Problèmes de mémoire RAM : peuvent causer des plantages, des erreurs système ou des performances lentes.
-                                <li>Problèmes de carte graphique : peuvent entraîner des artefacts d'affichage, des écrans noirs ou des plantages lors de l'exécution de tâches graphiquement intensives.</li>
-                                <li>Défaillance de l'alimentation : peut entraîner un démarrage intermittent ou une absence de démarrage complet de l'ordinateur.</li>
-                                <li>Surchauffe : peut provoquer des arrêts soudains de l'ordinateur en raison d'une ventilation insuffisante ou de poussière accumulée dans le système de refroidissement.</li><br> 
-                    </p>      
-                    <strong>Panne Logiciel</strong> <br>
-                    <p>
-                                <li>Virus et logiciels malveillants : peuvent causer des perturbations du système, des ralentissements ou des problèmes de confidentialité. </li>
-                                <li>Erreurs système : peuvent être dues à des conflits logiciels, des mises à jour défectueuses ou des problèmes de compatibilité. </li>
-                                <li>Corruption du système d'exploitation : peut provoquer un démarrage impossible ou des erreurs lors de l'utilisation de certaines applications. </li>
-                                <li>Problèmes de pilotes : peuvent entraîner des périphériques non reconnus, des erreurs de fonctionnement ou des écrans bleus de la mort (BSOD).</li>
-                    </p>        
-                    <strong>Panne réseau</strong> <br>
-                    <p>
-                                <li>Problèmes de connexion Internet : peuvent être dus à un dysfonctionnement du modem, du routeur ou à des problèmes de configuration réseau. </li> 
-                                <li>Problèmes de connectivité LAN/Wi-Fi : peuvent être causés par des interférences, des paramètres incorrects ou des pilotes obsolètes. </li>
-                                <li>Problèmes de configuration réseau : peuvent entraîner des erreurs de configuration IP, des conflits d'adresses ou des problèmes de pare-feu.</li>
-                    </p>       
-                    <strong>Autres pannes :</strong> <br>
-                    <p>         <li>Problèmes d'écran : tels que des pixels morts, des lignes d'affichage défectueuses ou des écrans figés. </li>
-                                <li>Problèmes de clavier ou de souris : peuvent être dus à des touches bloquées, des connexions défectueuses ou des périphériques défectueux. </li>
-                                <li>Problèmes audio : tels que l'absence de son, des grésillements ou des interruptions audio.</li>
-                    </p> 
-                    <p>En tant que technicien en maintenance informatique, il est important d'être capable d'identifier et de résoudre efficacement ces différentes pannes pour assurer le bon fonctionnement des ordinateurs de mes clients.</p>
-                
-               <span id="btn-closeMain"><em class="close">Fermer</em></span>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-phone-volume"></i>
+                </div>
+                <h3>Téléphonie VoIP</h3>
+                <p>Installation et configuration de systèmes de téléphonie VoIP IP et analogique. Déploiement multi-sites pour entreprises et administrations.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Vidéosurveillance</h3>
+                <p>Installation de caméras de surveillance analogiques et IP. Configuration d'enregistreurs DVR/NVR et accès à distance sécurisé.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Développement Web</h3>
+                <p>Création de sites web vitrines, portfolios et applications web. Design responsive et optimisation des performances.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Infographie</h3>
+                <p>Conception graphique, logos, affiches, cartes de visite et supports de communication visuelle professionnels.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Maintenance IT</h3>
+                <p>Maintenance préventive et corrective des parcs informatiques. Dépannage hardware/software et optimisation des systèmes.</p>
             </div>
         </div>
-    </div>
-    <div id="reseau">
-        <div class="reseau-content">
-            <button id="close-rs"><i class="fa-solid fa-chevron-down"></i></button>
-            <div class="main-item">
-                <h4>Réseau Informatique</h4> <hr>
-                <p>Le projet consiste à réaliser une installation d'un réseau informatique pour les clients, comprenant la conception,
-                    l'installation et la configuration de l'infrastructure réseau. Cela inclut la mise en place des serveurs, des commutateurs, des routeurs 
-                    et des points d'accès Wi-Fi, ainsi que la configuration des protocoles de communication, des pare-feux et des politiques de sécurité.</p>
-                <ol>
-                    <li><h5>Mise en Place d'un Réseau Local - Cas Immeuble Congelcam - Cabinet Maitre KAMGANG - Cyber La Metropole - Pharmadisc SA</h5>
-                        <ul>
-                            <li><h6>Description:</h6>
-                                Nous avons réalisé la conception, l'installation et la configuration complète d'un réseau local pour ses entreprises, comprenant la mise en place des prises réseau, 
-                                ,des baies de brassage (4U, 6U, 9U),de commutateurs, de routeurs et de points d'accès Wi-Fi.
-                            </li> <br>
-                            <li><h6>Résultat:</h6>
-                                L'entreprise bénéficie désormais d'un réseau sécurisé et évolutif qui répond à ses besoins actuels et futurs en matière de communication et de partage de données.
-                            </li> <br>
-                        </ul>
-                    </li>
-                    <li> <h5>Mise à Niveau du Réseau - cas du cabinet Maître Gilbert KAMGANG (Bonamoussadi)</h5>
-                        <ul>
-                            <li><h6>Description:</h6>
-                                Nous avons effectué une mise à niveau complète du réseau du cabinet Maître Gilbert KAMGANG (Bonamoussadi), en remplaçant les équipements obsolètes, en optimisant les performances et en renforçant la sécurité du réseau.
-                            </li> <br>
-                            <li><h6>Résultat: </h6>
-                                Le cabinet a constaté une amélioration significative de la fiabilité et de la vitesse de son réseau, ce qui a permis d'optimiser les opérations quotidiennes et d'améliorer la productivité des employés.
-                            </li> <br>
-                        </ul>
-                    </li>
-                    <li> <h5>Installation des caméras de surveillances - Cas de Immeuble Congelcam - Pharmadisc SA - cas du cabinet Maître Gilbert KAMGANG (Bonamoussadi) - ETS Labo Print</h5>
-                        <ul> <h6>Description:</h6>
-                            <li><strong>Installation de Système de Sécurité</strong> <br>
-                                Nous avons installé un système complet de vidéosurveillance pour Pharmadisc SA, comprenant des caméras haute définition, un enregistreur vidéo numérique (DVR), un système de vision nocturne et une application mobile pour surveiller à distance.<br><br> 
-                            </li>
-                            <li><strong>Déploiement de Caméras IP</strong> <br>
-                                Nous avons déployé un réseau de caméras IP pour l'entreprise XYZ, couvrant les zones intérieures et extérieures de leurs locaux. Les caméras sont connectées à un système de gestion vidéo (VMS) pour une surveillance centralisée.
-                            </li> <br>
-                            <li><strong>Panne réseau</strong> <br>
-                                - Problèmes de connexion Internet : peuvent être dus à un dysfonctionnement du modem, du routeur ou à des problèmes de configuration réseau. <br>
-                                - Problèmes de connectivité LAN/Wi-Fi : peuvent être causés par des interférences, des paramètres incorrects ou des pilotes obsolètes. <br>
-                                - Problèmes de configuration réseau : peuvent entraîner des erreurs de configuration IP, des conflits d'adresses ou des problèmes de pare-feu. <br>
-                            </li> <br>
-                            <li><strong>Déploiement de Caméras de Surveillance Intelligente - Complexes Résidentiels</strong> <br>
-                                Nous avons mis en place un système de surveillance intelligente pour plusieurs complexes résidentiels, intégrant des caméras dotées de technologies avancées telles que la reconnaissance faciale, la détection d'intrusion et l'analyse vidéo en temps réel.
+    </section>
 
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
-                <p>En tant que technicien en maintenance informatique, il est important d'être capable d'identifier et de résoudre efficacement ces différentes pannes pour assurer le bon fonctionnement des ordinateurs de mes clients.</p>
-                
-                <span id="btn-Rs"><em class="close">Fermer</em></span>
-            </div>
+    <!-- Projects Section -->
+    <section class="projects" id="projets">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Portfolio</span>
+            <h2 class="section-title">Mes Réalisations</h2>
+            <p class="section-desc">Un aperçu des projets réalisés pour des clients au Cameroun.</p>
         </div>
-    </div>
-
-
-
-
-    <section id="contact">
-        <h2 class="text-uppercase">Contactez - moi</h2>
-        <div class="contact">
-            <div class="bloc-contact infos">
-                <div class="ctn-c">
-                    <h4>GIRESSE FOYET</h4>
-                    <p>Un informaticien multi-fonction exercant sur la maintenance informatique, l'infographie et le developpement des sites Web et des applications Web qui mène au succès du produit global.
-                    <br><br>                    
-                    N'hésitez pas à me contacter en soumettant le formulaire ci-dessous et je vous répondrai dans les plus brefs délais ou me contacter en appuyant le bouton WhatsApp ci-dessous.
-                    </p>
-                    <a href="https://wa.me/237699318917" target="_blank"><i class="fa-brands fa-whatsapp"></i>SMS OU APPEL WHATSAPP</a>
-                    <br><br><br>
+        <div class="projects-grid">
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <i class="fas fa-building"></i>
+                    <span class="project-tag">VoIP National</span>
+                </div>
+                <div class="project-content">
+                    <h3>Déploiement VoIP Camwater</h3>
+                    <p>Déploiement d'un réseau local VoIP dans les délégations régionales de CAMWATER des 10 régions du Cameroun et leurs agences.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> 10 Régions</span>
+                        <span><i class="fas fa-phone"></i> VoIP</span>
+                        <span><i class="fas fa-network-wired"></i> LAN</span>
+                    </div>
                 </div>
             </div>
-            <div class="bloc-contact form">
-                <form method="post" id="form1">
-                    <div id="error-msg"></div>
-                    <div class="fom-input">
-                        <label for="nom">Nom <span>*</span></label>
-                        <input type="text" name="nom" id="nom" placeholder="Entrer votre nom" maxlength="150">
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <i class="fas fa-phone-office"></i>
+                    <span class="project-tag">VoIP Analogique</span>
+                </div>
+                <div class="project-content">
+                    <h3>Réseau VoIP DPC Bastos</h3>
+                    <p>Installation complète d'un réseau de téléphonie VoIP analogique au DPC Bastos, incluant le câblage et la configuration des postes.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Yaoundé</span>
+                        <span><i class="fas fa-phone"></i> Analogique</span>
+                        <span><i class="fas fa-tools"></i> Installation</span>
                     </div>
-                    <div class="fom-input">
-                        <label for="email">Email <span>*</span></label>
-                        <input type="text" name="email" id="email" placeholder="Entrer votre email" maxlength="256">
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <i class="fas fa-video"></i>
+                    <span class="project-tag">Surveillance Analogique</span>
+                </div>
+                <div class="project-content">
+                    <h3>Vidéosurveillance Résidences</h3>
+                    <p>Installation de caméras de vidéosurveillance analogiques dans plusieurs résidences à Yaoundé et Douala pour la sécurité des biens et personnes.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> YDE & DLA</span>
+                        <span><i class="fas fa-video"></i> Analogique</span>
+                        <span><i class="fas fa-home"></i> Résidences</span>
                     </div>
-                    <div class="fom-input">
-                        <label for="message">Message <span>*</span></label>
-                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Entrer votre message"></textarea>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <i class="fas fa-camera"></i>
+                    <span class="project-tag">Surveillance IP</span>
+                </div>
+                <div class="project-content">
+                    <h3>Caméras IP Camtel Tiko</h3>
+                    <p>Installation de caméras de vidéosurveillance IP à Camtel de Tiko, avec configuration réseau et accès à distance sécurisé.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Tiko</span>
+                        <span><i class="fas fa-wifi"></i> IP/Network</span>
+                        <span><i class="fas fa-building"></i> Camtel</span>
                     </div>
-                    <div class="fom-input">
-                        <input type="submit" value="Envoyer" name="envoyer">
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span class="project-tag">Internet & Réseau</span>
+                </div>
+                <div class="project-content">
+                    <h3>Starlink & LAN Japoma</h3>
+                    <p>Installation complète de l'Internet Starlink et déploiement d'un réseau local (LAN) dans un immeuble résidence à Japoma.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Japoma</span>
+                        <span><i class="fas fa-satellite"></i> Starlink</span>
+                        <span><i class="fas fa-building"></i> Immeuble</span>
                     </div>
+                </div>
+            </div>
+            <div class="project-card animate-on-scroll">
+                <div class="project-image">
+                    <i class="fas fa-laptop-medical"></i>
+                    <span class="project-tag">Maintenance</span>
+                </div>
+                <div class="project-content">
+                    <h3>Maintenance Pharmadisc Sarl</h3>
+                    <p>Maintenance régulière des ordinateurs et du parc informatique à Pharmadisc Sarl située à Douala Km5, assurant la continuité des activités.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Douala Km5</span>
+                        <span><i class="fas fa-desktop"></i> IT</span>
+                        <span><i class="fas fa-wrench"></i> Maintenance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="competences">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Compétences</span>
+            <h2 class="section-title">Mon Expertise</h2>
+            <p class="section-desc">Les technologies et outils que je maîtrise au quotidien.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category animate-on-scroll">
+                <h3><i class="fas fa-server"></i> Réseaux & Télécom</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">VoIP (IP & Analogique)</span>
+                        <span class="skill-level">95%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Configuration LAN/WAN</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Câblage Réseau</span>
+                        <span class="skill-level">92%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Installation Starlink</span>
+                        <span class="skill-level">88%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+                </div>
+            </div>
+            <div class="skill-category animate-on-scroll">
+                <h3><i class="fas fa-video"></i> Sécurité & Surveillance</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Caméras IP</span>
+                        <span class="skill-level">93%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 93%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Caméras Analogiques</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">DVR/NVR</span>
+                        <span class="skill-level">87%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 87%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Accès à Distance</span>
+                        <span class="skill-level">85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+            </div>
+            <div class="skill-category animate-on-scroll">
+                <h3><i class="fas fa-code"></i> Développement & Design</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML/CSS/JavaScript</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Infographie (Photoshop/Illustrator)</span>
+                        <span class="skill-level">88%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">UI/UX Design</span>
+                        <span class="skill-level">82%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 82%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">WordPress/CMS</span>
+                        <span class="skill-level">85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+            </div>
+            <div class="skill-category animate-on-scroll">
+                <h3><i class="fas fa-tools"></i> Maintenance & Support</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Hardware (PC/Serveurs)</span>
+                        <span class="skill-level">92%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Windows/Linux</span>
+                        <span class="skill-level">88%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Dépannage Réseau</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Sauvegarde & Sécurité</span>
+                        <span class="skill-level">85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Clients</span>
+            <h2 class="section-title">Ils m'ont fait confiance</h2>
+            <p class="section-desc">Entreprises et organisations au Cameroun.</p>
+        </div>
+        <div class="clients-grid">
+            <div class="client-card animate-on-scroll">
+                <div class="client-icon"><i class="fas fa-tint"></i></div>
+                <div class="client-info">
+                    <h4>CAMWATER</h4>
+                    <p>Déploiement VoIP national - 10 régions</p>
+                </div>
+            </div>
+            <div class="client-card animate-on-scroll">
+                <div class="client-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="client-info">
+                    <h4>DPC Bastos</h4>
+                    <p>Installation VoIP analogique</p>
+                </div>
+            </div>
+            <div class="client-card animate-on-scroll">
+                <div class="client-icon"><i class="fas fa-broadcast-tower"></i></div>
+                <div class="client-info">
+                    <h4>Camtel Tiko</h4>
+                    <p>Vidéosurveillance IP</p>
+                </div>
+            </div>
+            <div class="client-card animate-on-scroll">
+                <div class="client-icon"><i class="fas fa-building"></i></div>
+                <div class="client-info">
+                    <h4>Résidence Japoma</h4>
+                    <p>Starlink & LAN</p>
+                </div>
+            </div>
+            <div class="client-card animate-on-scroll">
+                <div class="client-icon"><i class="fas fa-pills"></i></div>
+                <div class="client-info">
+                    <h4>Pharmadisc Sarl</h4>
+                    <p>Maintenance informatique</p>
+                </div>
+            </div>
+            <div class="client-card animate-on-scroll">
+                <div class="client-icon"><i class="fas fa-home"></i></div>
+                <div class="client-info">
+                    <h4>Résidences Privées</h4>
+                    <p>Yaoundé & Douala</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Contact</span>
+            <h2 class="section-title">Travaillons ensemble</h2>
+            <p class="section-desc">Disponible pour vos projets IT et développement web.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info animate-on-scroll">
+                <h3>Parlons de votre projet</h3>
+                <p>
+                    Que vous ayez besoin d'une installation réseau, d'un système de vidéosurveillance, 
+                    d'un site web ou d'une maintenance informatique, je suis là pour vous accompagner.
+                </p>
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="label">Téléphone</div>
+                            <div>+237 6XX XXX XXX</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="label">Email</div>
+                            <div>contact@ffg-dev.cm</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="label">Localisation</div>
+                            <div>Cameroun - Yaoundé / Douala</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="label">Disponibilité</div>
+                            <div>Lun - Sam : 8h00 - 18h00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form animate-on-scroll">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" placeholder="Sujet du message" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Décrivez votre projet..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer le message
+                    </button>
                 </form>
             </div>
         </div>
-    </section>      
-     <!-- Footer-->
-     <footer class="footer">
-        <div class="foot-container">
-            <div class="row center">
-                <!-- Footer Localisation-->
-                <div class="bloc-foot">
-                    <h4 class="text-uppercase">Localisation</h4>
-                    <p class="mp-0">
-                        Logpom Bangos, Douala Cameroun
-                    </p>
-                </div>
-                <!-- Footer Reseau Social Icons-->
-                <div class="bloc-foot">
-                    <h4 class="text-uppercase">Réseaux Sociaux</h4>
-                    <a class="btn btn-social mx-1" href="https://discord.com/channels/@me/1183193934332186704"><i class="fa-brands fa-discord"></i></a>
-                    <a class="btn btn-social mx-1" href="https://www.linkedin.com/in/giressefoyet/"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-social mx-1" href="https://github.com/giressefoyet"><i class="fa-brands fa-github"></i></a>
-                    <a class="btn btn-social mx-1" href="https://www.pinterest.com/Giresse237/"><i class="fa-brands fa-pinterest"></i></a>
-                </div>
-                <!-- Footer A Propos Text-->
-                <div class="bloc-foot">
-                    <h4 class="text-uppercase">Télephone</h4>
-                    <p class="mp-0">
-                        <i>CMR</i>
-                       +237 699 31 89 17 | 650 01 63 62
-                    </p>
-                </div>
-            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">FFG.Dev</div>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
+        <p> FOYET FEANCK GIRESSE - IT, DV WEB & INFOGRAPHIE. Tous droits réservés.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Cameroun - Yaoundé / Douala</p>
     </footer>
-    <!-- Copyright Section-->
-    <div class="copyright">
-        <small>&copy; Copyright Portfolio 2024. Made by <a href="https://giressefoyet.maindigital237.com/"><u><strong>Giresse FOYET</strong></u></a></small>
-    </div>
-   
-    <div class="btn-float">
-        <a id="whtasapp-icon" href="https://wa.me/237699318917" target="_blank"><p>Contact-moi</p><span class="fleche"></span><i class="fa-brands fa-whatsapp"></i></a> 
-        <a id="retour-haut"><i class="fa-solid fa-circle-up"></i></a>
-    </div>
-    
-    <!-- script js -->
-    <script src="js/script.js"></script>
 
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars when visible
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.skill-fill');
+                    fills.forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.skill-category').forEach(el => {
+            skillObserver.observe(el);
+        });
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
+                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                e.target.reset();
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'rgba(15, 23, 42, 0.98)';
+            navLinks.style.padding = '2rem';
+            navLinks.style.backdropFilter = 'blur(20px)';
+            navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
